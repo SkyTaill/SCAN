@@ -9,6 +9,15 @@
 .flex_block {
     display: flex;
     justify-content: space-between;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.flex_block_corusel {
+
+    margin-top: 109px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 @import url(https://myfonts.ru/myfonts?fonts=ferry);
@@ -52,13 +61,11 @@
     height: 593px;
     left: 751px;
     top: 144px;
-    margin-right: 60px;
+
     background-image: url("../../svg/2398 1.svg");
 }
 
-.flex_text_block {
-    margin-left: 60px;
-}
+.flex_text_block {}
 
 .buttom_get_date {
     border: none;
@@ -80,4 +87,22 @@
     letter-spacing: 0.01em;
 
     color: #FFFFFF;
+}
+
+.capital_h2_text {
+    width: 743px;
+    height: 54px;
+    left: 60px;
+    top: 846px;
+
+    font-family: 'Ferry';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 45px;
+    line-height: 54px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    color: #000000;
 }
