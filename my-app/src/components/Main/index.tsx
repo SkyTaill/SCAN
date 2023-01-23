@@ -1,11 +1,11 @@
 import React from 'react';
 
-//import css from "./index.module.css"
+import css from "./index.module.css"
 
 function Main() {
     return (
-        <main className="App">
-            asdasd
+        <main className={css.main}>
+
         </main>
     );
 }
