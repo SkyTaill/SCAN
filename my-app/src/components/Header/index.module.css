@@ -1,7 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .main {
 
-    background: #057ec4;
-    padding: 20px;
+    background: #FFFFFF;
     flex-grow: 1;
 
+}
+
+.header {
+    background: #FFFFFF;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu_item {
+    margin-left: 49px;
+    border: none;
+    outline: none;
+    background-color: #FFFFFF;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
+    height: 93px;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+.scan {
+    width: 141px;
+    height: 111px;
+    left: 60px;
+    top: -24px;
+    background-image: url("../../svg/SGN_09_24_2022_1663968217400 1.svg");
+}
+
+.registate {
+    width: 146px;
+    height: 17px;
+    left: 1129px;
+    top: 37px;
+    margin-top: 3px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    color: #000000;
+
+    opacity: 0.4;
+}
+
+.loginOrRegistrate {
+    margin-right: 60px;
+    margin-top: 34px;
+    display: flex;
+}
+
+.line {
+    width: 2px;
+    height: 26px;
+
+    background-image: url("../../svg/Rectangle 7.svg");
+}
+
+.button_login {
+    margin-left: 32px;
+    width: 65px;
+    height: 26px;
+    left: 1315px;
+    top: 33px;
+    border: none;
+    outline: none;
+    background: #7CE3E1;
+    border-radius: 5px;
 }
