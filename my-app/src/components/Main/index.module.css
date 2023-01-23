@@ -5,3 +5,7 @@
     flex-grow: 1;
 
 }
+
+.flex_block {
+    display: flex;
+}

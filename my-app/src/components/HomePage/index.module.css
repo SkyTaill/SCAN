@@ -1,0 +1,83 @@
+.main {
+
+    background: white;
+    padding: 20px;
+    flex-grow: 1;
+
+}
+
+.flex_block {
+    display: flex;
+    justify-content: space-between;
+}
+
+@import url(https://myfonts.ru/myfonts?fonts=ferry);
+
+.capital_h1_text {
+    width: 743px;
+    height: 288px;
+    left: 60px;
+    top: 162px;
+
+    font-family: 'Ferry';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 72px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+@import url('https://fonts.cdnfonts.com/css/inter');
+
+.text_p_search_info {
+    width: 534px;
+    height: 48px;
+    left: 60px;
+    top: 470px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.backround_img {
+    width: 629px;
+    height: 593px;
+    left: 751px;
+    top: 144px;
+    margin-right: 60px;
+    background-image: url("../../svg/2398 1.svg");
+}
+
+.flex_text_block {
+    margin-left: 60px;
+}
+
+.buttom_get_date {
+    border: none;
+    outline: none;
+    width: 335px;
+    height: 59px;
+    left: 60px;
+    top: 588px;
+
+    background: #5970FF;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    color: #FFFFFF;
+}
