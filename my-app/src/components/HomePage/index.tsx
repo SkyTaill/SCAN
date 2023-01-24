@@ -1,6 +1,7 @@
 import React from 'react';
 
 import css from "./index.module.css"
+import Slider from "../Slider"
 
 function Home() {
     return (
@@ -17,7 +18,9 @@ function Home() {
 
             <section className={css.flex_block_corusel}>
                 <h2 className={css.capital_h2_text} >Почему именно мы</h2>
-                <div>333</div>
+                <div>
+                    <Slider />
+                </div>
             </section>
 
 
