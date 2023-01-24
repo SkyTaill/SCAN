@@ -1,18 +1,22 @@
 import React from 'react';
 import Carousel from "react-elastic-carousel";
 import css from "./index.module.css"
-import Item from "./item";
+import sliderDate1 from '../../slider-mock.json'
 
 
 
 
 
 function Slider() {
+
+    //переписать как пропс который передаем
+    var sliderDate = sliderDate1;
+
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
         { width: 550, itemsToShow: 2 },
         { width: 768, itemsToShow: 3 },
-        { width: 1200, itemsToShow: 4 },
+        { width: 1200, itemsToShow: 3 },
     ];
     const carouselRef = React.useRef(null);
     const onNextStart = (currentItem, nextItem) => {
@@ -24,32 +28,40 @@ function Slider() {
 
     const onPrevStart = (currentItem, nextItem) => {
         if (currentItem.index === nextItem.index) {
-            carouselRef.current.goTo(5);
+            carouselRef.current.goTo(sliderDate.length);
         }
     };
 
+    console.log(sliderDate)
+    var a = "color: 'red'"
+    //в слайдере реализована система зацикливания 
     return (
-        <>
-            <h1 style={{ textAlign: "center" }}>Example to setup your carousel in react</h1>
-            <div >
-                <Carousel breakPoints={breakPoints}
-                    //  enableAutoPlay
-                    ref={carouselRef}
-                    onPrevStart={onPrevStart}
-                    onNextStart={onNextStart}
-                    disableArrowsOnEnd={false}
-                >
-                    <div>fsdsfgg</div>
-                    <Item>Two</Item>
-                    <Item>Three</Item>
-                    <Item>Four</Item>
-                    <Item>Five</Item>
-                    <Item>Six</Item>
-                    <Item>Seven</Item>
-                    <Item>Eight</Item>
-                </Carousel>
-            </div>
-        </>
+        <div >
+            <Carousel breakPoints={breakPoints}
+                //  enableAutoPlay
+                ref={carouselRef}
+                onPrevStart={onPrevStart}
+                onNextStart={onNextStart}
+                disableArrowsOnEnd={false}
+            >
+                {sliderDate.map(elem => {
+                    return (
+                        <div key={elem.id} className={css.slider_item}>
+
+                            <div style={{
+                                width: "65px",
+                                height: "79px",
+                                backgroundImage: `url(${elem.svg})`
+
+                            }}></div>
+
+                            <p>{elem.date}</p>
+                        </div>
+                    )
+                })}
+            </Carousel>
+        </div>
+
     );
 }
 

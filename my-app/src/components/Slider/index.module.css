@@ -1,0 +1,26 @@
+.slider_item {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 380px;
+    height: 225px;
+    left: 94px;
+    top: 970px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.pic {
+    height: 20px;
+    background: #ee0808;
+}
+
+.scan {
+    width: 141px;
+    height: 111px;
+    left: 60px;
+    top: -24px;
+    margin-left: 60px;
+    background-image: url("../../svg/SGN_09_24_2022_1663968217400 1.svg");
+}
