@@ -25,6 +25,17 @@ function Home() {
                 </div>
             </section>
 
+            <section>
+                <div className={css.centr_pic} >
+                    <div className={css.leftPic}></div>
+                    <div className={css.divCentrPic}>
+                        <div className={css.centrPic}></div>
+                    </div>
+
+                    <div className={css.rightPic}></div>
+                </div>
+            </section>
+
 
         </div>
     );

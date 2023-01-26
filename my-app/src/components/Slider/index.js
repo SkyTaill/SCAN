@@ -58,7 +58,7 @@ const Slider = props => {
 
                             }}></div>
 
-                            <p>{elem.date}</p>
+                            <p className={css.box_text}>{elem.date}</p>
                         </div>
                     )
                 })}

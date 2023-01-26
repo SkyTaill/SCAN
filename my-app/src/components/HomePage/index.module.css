@@ -105,3 +105,33 @@
 
     color: #000000;
 }
+
+.centr_pic {
+    display: flex;
+
+}
+
+.leftPic {
+    width: 400px;
+    height: 400px;
+
+    background-image: url("../../svg/leftPicBlueBall.svg");
+}
+
+.divCentrPic {}
+
+.centrPic {
+    width: 400px;
+    height: 400px;
+    margin-left: 200px;
+
+    background-image: url("../../svg/centrPicBlueBall.svg");
+}
+
+.rightPic {
+    width: 400px;
+    height: 400px;
+    margin-left: 200px;
+
+    background-image: url("../../svg/rightPicBlueBall.svg");
+}

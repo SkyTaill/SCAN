@@ -24,3 +24,10 @@
     margin-left: 60px;
     background-image: url("../../svg/skan-head.svg");
 }
+
+.box_text {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 318px;
+
+}
