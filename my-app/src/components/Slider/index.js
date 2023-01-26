@@ -33,10 +33,11 @@ function Slider() {
     };
 
     console.log(sliderDate)
-    var a = "color: 'red'"
+
     //в слайдере реализована система зацикливания 
     return (
-        <div >
+        <div  >
+
             <Carousel breakPoints={breakPoints}
                 //  enableAutoPlay
                 ref={carouselRef}
@@ -51,7 +52,9 @@ function Slider() {
                             <div style={{
                                 width: "65px",
                                 height: "79px",
-                                backgroundImage: `url(${elem.svg})`
+                                // backgroundColor: "yellow",
+                                //   backgroundImage: `url(${elem.svg})`,
+                                backgroundImage: `url("../../svg/skan-head.svg")`
 
                             }}></div>
 
