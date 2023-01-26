@@ -2,6 +2,8 @@ import React from 'react';
 
 import css from "./index.module.css"
 import Slider from "../Slider"
+import sliderDate from '../../slider-mock.json'
+
 
 function Home() {
     return (
@@ -19,7 +21,7 @@ function Home() {
             <section className={css.flex_block_corusel}>
                 <h2 className={css.capital_h2_text} >Почему именно мы</h2>
                 <div>
-                    <Slider />
+                    <Slider sliderDate={sliderDate} />
                 </div>
             </section>
 

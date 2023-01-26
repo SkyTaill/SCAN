@@ -1,16 +1,16 @@
 import React from 'react';
 import Carousel from "react-elastic-carousel";
 import css from "./index.module.css"
-import sliderDate1 from '../../slider-mock.json'
 
 
 
 
 
-function Slider() {
 
+const Slider = props => {
+    const { sliderDate } = props
     //переписать как пропс который передаем
-    var sliderDate = sliderDate1;
+    //var sliderDate = sliderDate1;
 
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
