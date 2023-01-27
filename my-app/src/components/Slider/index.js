@@ -49,12 +49,11 @@ const Slider = props => {
                     return (
                         <div key={elem.id} className={css.slider_item}>
 
-                            <div style={{
-                                width: "65px",
-                                height: "79px",
+                            <div className={css.scan} style={{
+
                                 // backgroundColor: "yellow",
-                                //   backgroundImage: `url(${elem.svg})`,
-                                backgroundImage: `url("../../svg/skan-head.svg")`
+                                backgroundImage: `url(${elem.svg})`,
+                                //   backgroundImage: `url("https://kagouletheband.com/images/internet/chto-takoe-url.jpg")`
 
                             }}></div>
 

@@ -18,6 +18,7 @@
     margin-top: 109px;
     margin-left: 60px;
     margin-right: 60px;
+
 }
 
 @import url(https://myfonts.ru/myfonts?fonts=ferry);
@@ -108,7 +109,8 @@
 
 .centr_pic {
     display: flex;
-
+    align-items: center;
+    justify-content: center;
 }
 
 .leftPic {
@@ -134,4 +136,58 @@
     margin-left: 200px;
 
     background-image: url("../../svg/rightPicBlueBall.svg");
+}
+
+.tarifBlockBeginner {
+    width: 415px;
+    height: 540px;
+    left: 60px;
+    top: 2072px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 2px solid #FFB64F;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-left: 37px;
+    margin-right: 37px;
+}
+
+.tarifBlock {
+    box-sizing: border-box;
+    width: 415px;
+    height: 540px;
+    left: 512px;
+    top: 2072px;
+    margin-left: 37px;
+    margin-right: 37px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.centrBlock {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.yellowBlock {
+    width: 415px;
+    height: 132px;
+    left: 60px;
+    top: 2072px;
+
+    background: #FFB64F;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.picLamp {
+    width: 92.24px;
+    height: 83.15px;
+
+    background-image: url("../../svg/Lamp.svg");
+}
+
+.flex {
+    display: flex;
 }

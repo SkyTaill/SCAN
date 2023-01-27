@@ -1,6 +1,7 @@
 import React from 'react';
 
 import css from "./index.module.css"
+
 import Slider from "../Slider"
 import sliderDate from '../../slider-mock.json'
 
@@ -34,6 +35,35 @@ function Home() {
 
                     <div className={css.rightPic}></div>
                 </div>
+            </section>
+
+            <section className={css.flex_block_corusel} style={{ marginBottom: "118px" }}>
+                <h2 className={css.capital_h2_text}> наши тарифы</h2>
+                <div className={css.centrBlock}>
+                    <div className={css.centr_pic}>
+                        <div className={css.tarifBlockBeginner}>
+                            <div className={css.yellowBlock}>
+                                <div className={css.flex}>
+                                    <div>
+                                        <h1>Beginner</h1>
+                                        <p>Для небольшого исследования</p>
+                                    </div>
+                                    <div className={css.picLamp}>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div className={css.tarifBlock}></div>
+                        <div className={css.tarifBlock}></div>
+
+                    </div>
+                </div>
+
+
+
+
             </section>
 
 
