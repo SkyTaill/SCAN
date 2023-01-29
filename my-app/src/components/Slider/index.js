@@ -1,14 +1,14 @@
 import React from 'react';
 import Carousel from "react-elastic-carousel";
 import css from "./index.module.css"
-
+import sliderDate from "./slider-mock.json"
 
 
 
 
 
 const Slider = props => {
-    const { sliderDate } = props
+    //const { sliderDate } = props
     //переписать как пропс который передаем
     //var sliderDate = sliderDate1;
 
@@ -53,7 +53,7 @@ const Slider = props => {
 
                                 // backgroundColor: "yellow",
                                 backgroundImage: `url(${elem.svg})`,
-                                //   backgroundImage: `url("https://kagouletheband.com/images/internet/chto-takoe-url.jpg")`
+                                //  backgroundImage: `url("../times.png")`
 
                             }}></div>
 

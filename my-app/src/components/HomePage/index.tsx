@@ -3,7 +3,7 @@ import React from 'react';
 import css from "./index.module.css"
 
 import Slider from "../Slider"
-import sliderDate from '../../slider-mock.json'
+//import sliderDate from '../Slider/slider-mock.json'
 
 
 function Home() {
@@ -22,18 +22,15 @@ function Home() {
             <section className={css.flex_block_corusel}>
                 <h2 className={css.capital_h2_text} >Почему именно мы</h2>
                 <div>
-                    <Slider sliderDate={sliderDate} />
+                    <Slider />
                 </div>
             </section>
 
             <section>
-                <div className={css.centr_pic} >
-                    <div className={css.leftPic}></div>
-                    <div className={css.divCentrPic}>
-                        <div className={css.centrPic}></div>
-                    </div>
+                <div className={css.centr_pic} style={{ marginBottom: "107px", marginTop: "70px" }} >
+                    <div className={css.bigPic}>
 
-                    <div className={css.rightPic}></div>
+                    </div>
                 </div>
             </section>
 
