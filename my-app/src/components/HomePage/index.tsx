@@ -1,7 +1,7 @@
 import React from 'react';
 
 import css from "./index.module.css"
-
+import { Link } from 'react-router-dom'
 import Slider from "../Slider"
 //import sliderDate from '../Slider/slider-mock.json'
 
@@ -77,8 +77,9 @@ function Home() {
                                     <div className={css.picTarifGreen}></div>
                                     <p className={css.tarifLi} >Поддержка 24/7</p>
                                 </div>
-
-                                <button className={css.buttonTarif}>Перейти в личный кабинет</button>
+                                <Link to={`/login`} >
+                                    <button className={css.buttonTarif} >Перейти в личный кабинет</button>
+                                </Link>
                             </div>
                         </div>
                         <div className={css.tarifBlock}>
@@ -183,6 +184,7 @@ function Home() {
 
         </div>
     );
+
 }
 
 export default Home;

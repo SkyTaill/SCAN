@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 import css from "./index.module.css"
 
 function Header() {
@@ -8,14 +8,18 @@ function Header() {
             <div className={css.header_content}>
                 <div className={css.scan}></div>
                 <div className={css.menu}>
-                    <button className={css.menu_item}>Главная</button>
+                    <Link to={`/`} >
+                        <button className={css.menu_item_l}>Главная</button>
+                    </Link>
                     <button className={css.menu_item}>Тарифы</button>
                     <button className={css.menu_item}>FAQ</button>
                 </div>
                 <div className={css.loginOrRegistrate}>
                     <div className={css.registate}>Зарегистрироваться</div>
                     <div className={css.line}></div>
-                    <button className={css.button_login}>Войти</button>
+                    <Link to={`/login`} >
+                        <button className={css.button_login}>Войти</button>
+                    </Link>
                 </div>
             </div>
         </header>
