@@ -40,20 +40,137 @@ function Home() {
                     <div className={css.centr_pic}>
                         <div className={css.tarifBlockBeginner}>
                             <div className={css.yellowBlock}>
-                                <div className={css.flex}>
-                                    <div>
-                                        <h1>Beginner</h1>
-                                        <p>Для небольшого исследования</p>
-                                    </div>
-                                    <div className={css.picLamp}>
-                                    </div>
+                                <div className={css.margTarifBlock}>
+                                    <div className={css.flex}>
+                                        <div>
+                                            <h1 className={css.tarifBig}>Beginner</h1>
+                                            <p className={css.textTarifWithPadding} >Для небольшого исследования</p>
+                                        </div>
+                                        <div className={css.picLamp}>
+                                        </div>
 
 
+                                    </div>
                                 </div>
                             </div>
+                            <div className={css.paddingTarif}>
+                                <div className={css.flex}>
+                                    <h3 className={css.cost}>799 ₽</h3>
+                                    <h3 className={css.oldCost}>1 200 ₽</h3>
+                                    <div className={css.tarif}>
+                                        <p className={css.tarifText}>Текущий тариф</p>
+                                    </div>
+                                </div>
+                                <p className={css.textTarifWithPadding} >или 150 ₽/мес. при рассрочке на 24 мес.</p>
+                                <h3 className={css.tarifHead}>В тариф входит:</h3>
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Безлимитная история запросов</p>
+                                </div>
+
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Безопасная сделка</p>
+                                </div>
+
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Поддержка 24/7</p>
+                                </div>
+
+                                <button className={css.buttonTarif}>Перейти в личный кабинет</button>
+                            </div>
                         </div>
-                        <div className={css.tarifBlock}></div>
-                        <div className={css.tarifBlock}></div>
+                        <div className={css.tarifBlock}>
+                            <div className={css.blue}>
+                                <div className={css.margTarifBlock}>
+                                    <div className={css.flex}>
+                                        <div>
+                                            <h1 className={css.tarifBig}>Pro</h1>
+                                            <p className={css.textTarifWithPadding} >Для HR и фрилансеров</p>
+                                        </div>
+                                        <div className={css.picPro}>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className={css.paddingTarif}>
+                                <div className={css.flex}>
+                                    <h3 className={css.cost}>1299 ₽</h3>
+                                    <h3 className={css.oldCost}>2 600 ₽</h3>
+                                </div>
+                                <p className={css.textTarifWithPadding} >или 279 ₽/мес. при рассрочке на 24 мес.</p>
+                                <h3 className={css.tarifHead}>В тариф входит:</h3>
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Все пункты тарифа Beginner</p>
+                                </div>
+
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Экспорт истории</p>
+                                </div>
+
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Рекомендации по приоритетам</p>
+                                </div>
+
+                                <button className={css.buttomTarifNoReg}>Подробнее</button>
+                            </div>
+
+                        </div>
+
+
+
+                        <div className={css.tarifBlock}>
+                            <div className={css.black}>
+                                <div className={css.margTarifBlock}>
+                                    <div className={css.flex}>
+                                        <div>
+                                            <h1 className={css.tarifBigBlack}>Business</h1>
+                                            <p className={css.smallTarifBlack} >Для корпоративных клиентов</p>
+                                        </div>
+                                        <div className={css.picBusiness}>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div className={css.paddingTarif}>
+                                <div className={css.flex}>
+                                    <h3 className={css.cost}>2 379 ₽</h3>
+                                    <h3 className={css.oldCost}>3 700 ₽</h3>
+                                </div>
+                                <p className={css.textTarifWithPadding} >или 279 ₽/мес. при рассрочке на 24 мес.</p>
+                                <h3 className={css.tarifHead}>В тариф входит:</h3>
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Все пункты тарифа Pro</p>
+                                </div>
+
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Безлимитное количество запросов</p>
+                                </div>
+
+                                <div className={css.flex}>
+                                    <div className={css.picTarifGreen}></div>
+                                    <p className={css.tarifLi} >Приоритетная поддержка</p>
+                                </div>
+
+                                <button className={css.buttomTarifNoReg}>Подробнее</button>
+                            </div>
+
+
+
+                        </div>
 
                     </div>
                 </div>

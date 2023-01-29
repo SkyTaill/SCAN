@@ -32,7 +32,7 @@ const Slider = props => {
         }
     };
 
-    console.log(sliderDate)
+
 
     //в слайдере реализована система зацикливания 
     return (
@@ -52,8 +52,11 @@ const Slider = props => {
                             <div className={css.scan} style={{
 
                                 // backgroundColor: "yellow",
-                                backgroundImage: `url(${elem.svg})`,
-                                //  backgroundImage: `url("../times.png")`
+
+                                height: "50px",
+                                width: "50px",
+                                backgroundImage: `url(${elem.svg})`
+                                // backgroundImage: `url("../times.png")`
 
                             }}></div>
 

@@ -199,3 +199,250 @@
 
     background-image: url("../../svg/bigPic.svg");
 }
+
+.textTarif {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.margTarifBlock {
+    margin-left: 30px;
+}
+
+.cost {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.oldCost {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    text-decoration-line: line-through;
+    margin-left: 19px;
+    color: #000000;
+    padding-top: 10px;
+
+    opacity: 0.5;
+}
+
+.paddingTarif {
+    margin-left: 30px;
+}
+
+.tarifBig {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.textTarifWithPadding {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    margin-top: -20px;
+    color: #000000;
+}
+
+.tarif {
+    width: 134px;
+    height: 24px;
+    left: 331px;
+    top: 2216px;
+    margin-top: 10px;
+    margin-left: 43px;
+    background: #3BA5E0;
+    border-radius: 10px;
+}
+
+.tarifText {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    margin-top: 3px;
+    margin-left: 6px;
+    letter-spacing: 0.01em;
+
+    color: #FFFFFF;
+}
+
+.tarifLi {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+    margin-top: -10px;
+
+    color: #000000;
+}
+
+.tarifHead {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+    margin-top: 59px;
+}
+
+.picTarifGreen {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: -8px;
+    margin-right: 8px;
+    background-image: url("../../svg/tarifGreen.svg");
+}
+
+.buttonTarif {
+    margin-top: 20px;
+    width: 355px;
+    height: 59px;
+    left: 90px;
+    top: 2529px;
+    border: none;
+    outline: none;
+    background: #D2D2D2;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+}
+
+.blue {
+    width: 415px;
+    height: 132px;
+    left: 512px;
+    top: 2072px;
+
+    background: #7CE3E1;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.picPro {
+    width: 120px;
+    height: 127px;
+
+    margin-left: 50px;
+    transform: rotate(-16.92deg);
+    background-image: url("../../svg/proPic.svg");
+}
+
+.buttomTarifNoReg {
+    border: none;
+    outline: none;
+    width: 355px;
+    height: 59px;
+    left: 542px;
+    top: 2529px;
+    margin-top: 20px;
+    background: #5970FF;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+
+    color: #FFFFFF;
+}
+
+.black {
+    width: 415px;
+    height: 132px;
+    left: 965px;
+    top: 2072px;
+
+    background: #000000;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.tarifBigBlack {
+    width: 131px;
+    height: 36px;
+    left: 995px;
+    top: 2102px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.01em;
+
+    color: #FFFFFF;
+}
+
+.smallTarifBlack {
+    width: 313px;
+    height: 22px;
+    left: 995px;
+    top: 2148px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.01em;
+
+    color: #FFFFFF;
+}
+
+.picBusiness {
+    width: 99px;
+    height: 81.09px;
+    margin-top: 20px;
+    margin-left: -27px;
+    margin-right: 5px;
+
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    background-image: url("../../svg/lapTop.svg");
+}
