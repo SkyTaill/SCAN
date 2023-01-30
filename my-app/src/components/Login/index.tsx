@@ -1,11 +1,46 @@
 import React from 'react';
-
+import { useState } from 'react';
 import css from "./index.module.css"
 
 
 
 
 function Login() {
+    const [loginBoolen, setLoginBoolen] = useState(false)
+    const [passwordBoolen, setPasswordBoolen] = useState(false)
+    const [login, setLogin] = useState()
+    const [password, setPassword] = useState()
+
+    const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
+        var a: boolean
+        if (e.currentTarget.value.startsWith("+")) {
+            var patt = new RegExp(
+                '^' +                           // No leading content.
+                '[-+]?' +                       // Optional sign.
+                '(?:[0-9]{0,30}\\.)?' +         // Optionally 0-30 decimal digits of mantissa.
+                '[0-9]{1,30}' +                 // 1-30 decimal digits of integer or fraction.
+                '(?:[Ee][-+]?[1-2]?[0-9])?' +   // Optional exponent 0-29 for scientific notation.
+                '$'                             // No trailing content.
+            )
+            //  console.log(patt.test(e.currentTarget.value))
+            a = patt.test(e.currentTarget.value)
+            setLoginBoolen(a)
+        } else if (e.currentTarget.value === "") {
+            setLoginBoolen(false)
+        } else {
+            setLoginBoolen(true)
+        }
+
+    }
+
+    const onChangePassword = (e: React.FormEvent<HTMLInputElement>) => {
+
+        if (e.currentTarget.value === "") {
+            setPasswordBoolen(false)
+        } else {
+            setPasswordBoolen(true)
+        }
+    }
     return (
         <div>
             <div className={css.flex_block}>
@@ -39,11 +74,21 @@ function Login() {
 
                         </div>
                         <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Логин или номер телефона:</p>
-                        <input type="text" className={css.input} />
-                        <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Пароль:</p>
-                        <input type="text" className={css.input} />
 
-                        <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>
+                        <input type="text" className={loginBoolen ? css.input : css.inputErr} onChange={onChangeLogin} />
+
+                        {loginBoolen ? null : (<p className={css.textErr}>Введите корректные данные</p>)}
+
+                        <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Пароль:</p>
+                        <input type="password" className={passwordBoolen ? css.input : css.inputErr} onChange={onChangePassword} />
+
+                        {passwordBoolen ? null : (<p className={css.textErr}>Неправильный</p>)}
+
+
+                        {loginBoolen ? (passwordBoolen ? <button className={css.buttonLogInValidTrue} style={{ marginTop: "40px" }}>Войти</button>
+                            : <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>) : <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>
+                        }
+
 
                         <button className={css.backupPassword} >Восстановить пароль</button>
                         <p className={css.textLoginBox} >Войти через:</p>
@@ -67,5 +112,7 @@ function Login() {
 
     );
 }
+
+
 
 export default Login;

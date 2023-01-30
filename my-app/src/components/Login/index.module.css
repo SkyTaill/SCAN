@@ -233,3 +233,57 @@
     margin-top: 5px;
     background-image: url("../../svg/login/yandex1.svg");
 }
+
+
+.inputErr {
+    width: 379px;
+    height: 43px;
+
+    color: red;
+    background: #FFFFFF;
+    border: 1px solid #fa0505;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.textErr {
+    width: 203px;
+    height: 17px;
+    position: fixed;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    color: #FF5959;
+}
+
+.buttonLogInValidTrue {
+
+    width: 379px;
+    height: 59px;
+
+    border: none;
+    outline: none;
+    background: #3b52e6;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+
+}
