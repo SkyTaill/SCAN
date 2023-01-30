@@ -44,6 +44,21 @@ function Login() {
                         <input type="text" className={css.input} />
 
                         <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>
+
+                        <button className={css.backupPassword} >Восстановить пароль</button>
+                        <p className={css.textLoginBox} >Войти через:</p>
+                        <div className={css.flex_block}>
+                            <div className={css.blockAlterLog}>
+                                <div className={css.picGoogle}></div>
+                            </div>
+                            <div className={css.blockAlterLog}>
+                                <div className={css.picFaceBook}></div>
+                            </div>
+                            <div className={css.blockAlterLog}>
+                                <div className={css.picYandex}></div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
