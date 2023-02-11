@@ -2,16 +2,45 @@ import React from 'react';
 import { useState } from 'react';
 //import { json } from 'stream/consumers';
 import css from "./index.module.css"
+import { useAppDispatch } from 'src/hook';
+import { addTodo, removeTodo, toggleComplete } from 'src/store/todoSlice';
+import { useAppSelector } from 'src/hook';
 
-
-function Login() {
+// interface ToDoItemProps{
+//     id: string;
+//     title: string
+// }
+// const TodoItem:React.FC<ToDoItemProps>=({id,title})=>{}
+const Login: React.FC = () => {
     const [loginBoolen, setLoginBoolen] = useState(false)
     const [passwordBoolen, setPasswordBoolen] = useState(false)
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     // const [error, setError] = useState(false)
 
+
+
+
+
+    //====
+    const todos = useAppSelector(state => state.todos.list);
+    console.log(todos)
+    const dispatch = useAppDispatch();
+
+
+
+
+
+
+
     const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
+
+        //====
+        dispatch(addTodo("assss"));
+
+        // dispatch(toggleComplete("assss"))
+
+
         var a: boolean
         if (e.currentTarget.value.startsWith("+")) {
             var patt = new RegExp(
@@ -36,7 +65,6 @@ function Login() {
         }
 
     }
-
     const onChangePassword = (e: React.FormEvent<HTMLInputElement>) => {
 
         if (e.currentTarget.value === "") {

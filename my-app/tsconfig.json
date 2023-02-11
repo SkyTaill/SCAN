@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": [
       "dom",
@@ -20,7 +21,17 @@
     "noEmit": true,
     "jsx": "preserve"
   },
+  "exclude": [
+    "node_modules",
+    ".vscode"
+  ],
   "include": [
-    "src"
+    "src",
+    "src/**/*.ts",
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "@types/**/*.d.ts",
+    "node_modules/axios",
+    "node_modules/redux-thunk"
   ]
 }
