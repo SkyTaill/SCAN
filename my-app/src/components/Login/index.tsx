@@ -3,7 +3,7 @@ import { useState } from 'react';
 //import { json } from 'stream/consumers';
 import css from "./index.module.css"
 import { useAppDispatch } from 'src/hook';
-import { addTodo, removeTodo, toggleComplete } from 'src/store/todoSlice';
+import { addTodo, } from 'src/store/todoSlice';
 import { useAppSelector } from 'src/hook';
 
 // interface ToDoItemProps{
@@ -11,35 +11,23 @@ import { useAppSelector } from 'src/hook';
 //     title: string
 // }
 // const TodoItem:React.FC<ToDoItemProps>=({id,title})=>{}
+
+
+
+
 const Login: React.FC = () => {
     const [loginBoolen, setLoginBoolen] = useState(false)
     const [passwordBoolen, setPasswordBoolen] = useState(false)
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    // const [error, setError] = useState(false)
 
-
-
-
-
-    //====
-    const todos = useAppSelector(state => state.todos.list);
-    console.log(todos)
     const dispatch = useAppDispatch();
+    const token = useAppSelector(state => state.todos)
 
-
-
-
-
+    console.log(token)
 
 
     const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
-
-        //====
-        dispatch(addTodo("assss"));
-
-        // dispatch(toggleComplete("assss"))
-
 
         var a: boolean
         if (e.currentTarget.value.startsWith("+")) {
@@ -76,6 +64,7 @@ const Login: React.FC = () => {
     }
 
     const onClick = async () => {
+
         if (loginBoolen !== false && passwordBoolen !== false) {
 
 
@@ -111,6 +100,8 @@ const Login: React.FC = () => {
                     .then(json => {
                         var a2: string = json.accessToken;
                         console.log("Token--", a2)
+                        dispatch(addTodo(a2));
+
                     }
 
                     ).catch((err) => {
