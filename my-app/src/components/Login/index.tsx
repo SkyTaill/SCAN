@@ -4,15 +4,13 @@ import { useState } from 'react';
 import css from "./index.module.css"
 import { useAppDispatch } from 'src/hook';
 import { addTodo, } from 'src/store/todoSlice';
-import { useAppSelector } from 'src/hook';
-
+//import { useAppSelector } from 'src/hook';
+import { HOST } from "../../API"
 // interface ToDoItemProps{
 //     id: string;
 //     title: string
 // }
 // const TodoItem:React.FC<ToDoItemProps>=({id,title})=>{}
-
-
 
 
 const Login: React.FC = () => {
@@ -22,9 +20,8 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState("")
 
     const dispatch = useAppDispatch();
-    const token = useAppSelector(state => state.todos)
-
-    console.log(token)
+    //const token = useAppSelector(state => state.todos)
+    //  console.log(token)
 
 
     const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
@@ -87,7 +84,7 @@ const Login: React.FC = () => {
                     }
                 }
                 // Делаем запрос за данными
-                await fetch('https://gateway.scan-interfax.ru/api/v1/account/login', options)
+                await fetch(HOST + '/login', options)
                     .then(response => {
                         if (!response.ok) {
                             //  setError( response.json.)

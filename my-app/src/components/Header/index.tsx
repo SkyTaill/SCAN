@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import css from "./index.module.css"
+import { useAppSelector } from 'src/hook';
+import { HOST } from "../../API"
 
 function Header() {
+    const token = useAppSelector(state => state.todos)
+
+    console.log(token)
     return (
         <header className={css.header}>
             <div className={css.header_content}>
