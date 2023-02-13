@@ -3,10 +3,16 @@ import React from 'react';
 import css from "./index.module.css"
 import { Link } from 'react-router-dom'
 import Slider from "../Slider"
-//import sliderDate from '../Slider/slider-mock.json'
+
+import { useAppSelector } from 'src/hook';
+
 
 
 function Home() {
+
+    // const token = useAppSelector(state => state.autorizeUser)
+    // console.log("dd", token)
+
     return (
         <div>
             <section className={css.flex_block}>

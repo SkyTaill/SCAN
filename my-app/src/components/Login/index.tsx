@@ -2,16 +2,30 @@ import React from 'react';
 import { useState } from 'react';
 //import { json } from 'stream/consumers';
 import css from "./index.module.css"
+import { useAppDispatch } from 'src/hook';
+import { addTodo, } from 'src/store/todoSlice';
+//import { useAppSelector } from 'src/hook';
+import { HOST } from "../../API"
+// interface ToDoItemProps{
+//     id: string;
+//     title: string
+// }
+// const TodoItem:React.FC<ToDoItemProps>=({id,title})=>{}
 
 
-function Login() {
+const Login: React.FC = () => {
     const [loginBoolen, setLoginBoolen] = useState(false)
     const [passwordBoolen, setPasswordBoolen] = useState(false)
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    // const [error, setError] = useState(false)
+
+    const dispatch = useAppDispatch();
+    //const token = useAppSelector(state => state.todos)
+    //  console.log(token)
+
 
     const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
+
         var a: boolean
         if (e.currentTarget.value.startsWith("+")) {
             var patt = new RegExp(
@@ -36,7 +50,6 @@ function Login() {
         }
 
     }
-
     const onChangePassword = (e: React.FormEvent<HTMLInputElement>) => {
 
         if (e.currentTarget.value === "") {
@@ -48,6 +61,7 @@ function Login() {
     }
 
     const onClick = async () => {
+
         if (loginBoolen !== false && passwordBoolen !== false) {
 
 
@@ -70,7 +84,7 @@ function Login() {
                     }
                 }
                 // Делаем запрос за данными
-                await fetch('https://gateway.scan-interfax.ru/api/v1/account/login', options)
+                await fetch(HOST + '/account/login', options)
                     .then(response => {
                         if (!response.ok) {
                             //  setError( response.json.)
@@ -83,6 +97,8 @@ function Login() {
                     .then(json => {
                         var a2: string = json.accessToken;
                         console.log("Token--", a2)
+                        dispatch(addTodo(a2));
+
                     }
 
                     ).catch((err) => {
