@@ -287,3 +287,12 @@
     color: #FFFFFF;
 
 }
+
+.buttonLogInValidTrue:hover {
+    background: #3544a7;
+}
+
+.buttonLogInValidTrue:active {
+    background: #3b52e6;
+    box-shadow: 0 3px #3b52e6 inset;
+}

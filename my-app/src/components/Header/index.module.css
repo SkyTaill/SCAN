@@ -96,6 +96,15 @@
     border-radius: 5px;
 }
 
+.button_login:hover {
+    background: #69c4c2;
+}
+
+.button_login:active {
+    background: #7CE3E1;
+    box-shadow: 0 3px #7CE3E1 inset;
+}
+
 .menu_item_l {
     margin-left: 49px;
     border: none;
