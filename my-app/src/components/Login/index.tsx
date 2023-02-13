@@ -84,7 +84,7 @@ const Login: React.FC = () => {
                     }
                 }
                 // Делаем запрос за данными
-                await fetch(HOST + '/login', options)
+                await fetch(HOST + '/account/login', options)
                     .then(response => {
                         if (!response.ok) {
                             //  setError( response.json.)
