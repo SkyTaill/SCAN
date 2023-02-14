@@ -201,7 +201,9 @@ function Home() {
         if (autorizeBoolem) {
 
             return (
-                <button className={css.buttom_get_date}>Запросить данные</button>
+                <Link to={`/search`} >
+                    <button className={css.buttom_get_date}>Запросить данные</button>
+                </Link>
             )
         } else {
             return (
