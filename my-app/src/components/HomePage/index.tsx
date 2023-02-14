@@ -10,8 +10,8 @@ import { useAppSelector } from 'src/hook';
 
 function Home() {
 
-    // const token = useAppSelector(state => state.autorizeUser)
-    // console.log("dd", token)
+    var autorize = useAppSelector(state => state.autorize)
+    //const autorize = false
 
     return (
         <div>
@@ -19,7 +19,9 @@ function Home() {
                 <div className={css.flex_text_block}>
                     <h1 className={css.capital_h1_text}>сервис по поиску публикаций о компании по его ИНН</h1>
                     <p className={css.text_p_search_info}>Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.</p>
-                    <button className={css.buttom_get_date}>Запросить данные</button>
+
+                    <Demo />
+
                 </div>
                 <div className={css.backround_img}>
                 </div>
@@ -190,6 +192,24 @@ function Home() {
 
         </div>
     );
+
+    function Demo() {
+
+
+        var autorizeBoolem = useAppSelector(state => autorize.user)
+
+        if (autorizeBoolem) {
+
+            return (
+                <button className={css.buttom_get_date}>Запросить данные</button>
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
+
+    }
 
 }
 

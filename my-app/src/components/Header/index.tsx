@@ -4,6 +4,8 @@ import css from "./index.module.css"
 import { useAppSelector } from 'src/hook';
 import { HOST } from "../../API"
 import { useState } from 'react';
+import { addAutorizeUser } from 'src/store/autorizeUserSlice';
+import { useAppDispatch } from 'src/hook';
 
 interface EventFiltersInfo {
     usedCompanyCount: number;
@@ -17,6 +19,7 @@ const Header: React.FC = () => {
     const [needUpdate, setNeedUpdate] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
     const redux = useAppSelector(state => state.todos)
+    const dispatch = useAppDispatch();
 
     const loginIn = () => {
         //  setIsLoading(true)
@@ -43,6 +46,7 @@ const Header: React.FC = () => {
                 .then(json => {
                     var infoUser1: EventFiltersInfo = json.eventFiltersInfo;
                     setInfoUser(infoUser1)
+                    dispatch(addAutorizeUser(true))
                     //  console.log("===", infoUser)
                 }
 
@@ -68,6 +72,9 @@ const Header: React.FC = () => {
 
             // setIsLoading(false)
             setNeedUpdate(false)
+
+
+
         }
     }
     return (
