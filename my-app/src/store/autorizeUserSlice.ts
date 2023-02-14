@@ -1,19 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
-
-const initialState: Boolean = false
+type userState = {
+    user: boolean
+}
+const initialState: userState = {
+    user: false
+}
 
 
 const autorizeUser = createSlice({
-    name: 'autorizeUser',
+    name: 'autorize',
     initialState,
     reducers: {
         addAutorizeUser(state, action: PayloadAction<boolean>) {
 
-            state = action.payload
+            state.user = action.payload
 
-        },
+        }
 
     },
 });
