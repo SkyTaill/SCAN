@@ -1,18 +1,18 @@
 
 
 interface TargetSearchEntity {
-    type: string,
-    inBusinessNews: boolean,
-    sparkId: number,
-    entityId: number,
-    inn: string,
-    maxFullness: boolean
+    type?: string,
+    inBusinessNews?: boolean,
+    sparkId?: number,
+    entityId?: number,
+    inn: number,
+    maxFullness?: boolean
 }
 interface TargetSearchEntitiesContext {
-    targetSearchEntities: TargetSearchEntity,
-    onlyMainRole: boolean,
-    onlyWithRiskFactors: boolean,
-    tonality: string,
+    targetSearchEntities?: TargetSearchEntity[],
+    onlyMainRole?: boolean,
+    onlyWithRiskFactors?: boolean,
+    tonality?: string,
 
 }
 interface SearchContext {

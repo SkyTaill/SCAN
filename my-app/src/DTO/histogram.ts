@@ -1,4 +1,6 @@
 import { Attributes, Source, Author, Title, Content } from "./Document"
+import { TargetSearchEntity, TargetSearchEntitiesContext, SearchContext, DateInterval } from "./Search"
+import { IntervalPoint, HistogramData } from "./Analytics"
 
 
 interface ScanDoc {
@@ -27,4 +29,20 @@ interface EventFiltersInfo {
 }
 
 
-export type { Attributes, EventFiltersInfo, SearchResultItem, ScanDoc }
+interface Histograms {
+    intervalType: string,
+    histogramTypes: string[],
+    issueDateInterval: DateInterval,
+    searchContext: SearchContext,
+    similarMode: string,
+    limit: number,
+    sortType: string,
+    sortDirectionType: string,
+    attributeFilters: Attributes
+
+
+
+}
+
+
+export type { Histograms }

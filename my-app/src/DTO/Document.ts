@@ -1,10 +1,13 @@
 
 
 interface Attributes {
-    isTechNews: boolean,
-    isAnnouncement: boolean,
-    isDigest: boolean,
-    wordCount: number
+    isTechNews?: boolean,
+    isAnnouncement?: boolean,
+    isDigest?: boolean,
+    wordCount?: number,
+    excludeTechNews?: boolean,
+    excludeAnnouncements?: boolean,
+    excludeDigests?: boolean
 
 }
 

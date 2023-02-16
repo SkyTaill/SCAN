@@ -4,16 +4,98 @@ import css from "./index.module.css"
 
 
 import { useAppSelector } from 'src/hook';
-
-
+import { Histograms } from "../../DTO/histogram"
+import { HOST } from "../../API"
 
 function Search() {
 
-    var autorize = useAppSelector(state => state.autorize)
+
+    const redux = useAppSelector(state => state.todos)
     //const autorize = false
+    //let histogram:Histograms
+    // {
+    //     "issueDateInterval": {
+    //       "startDate": "2019-01-01T00:00:00+03:00",
+    //       "endDate": "2022-08-31T23:59:59+03:00"
+    //     },
+    //     "searchContext": {
+    //       "targetSearchEntitiesContext": {
+    //         "targetSearchEntities": [
+    //           {
+    //             "type": "company",
+
+    //             "inn": 7710137066,
+    //             "maxFullness": true
+
+    //           }
+    //         ],
+    //         "onlyMainRole": true,
+    //         "tonality": "any",
+    //         "onlyWithRiskFactors": false
+
+
+    //       }
+
+    //     },
+
+    //     "attributeFilters": {
+    //       "excludeTechNews": true,
+    //       "excludeAnnouncements": true,
+    //       "excludeDigests": true
+    //     },
+    //     "similarMode": "duplicates",
+    //     "limit": 1000,
+    //     "sortType": "sourceInfluence",
+    //     "sortDirectionType": "desc",
+    //     "intervalType": "month",
+    //     "histogramTypes": [
+    //       "totalDocuments",
+    //       "riskFactors"
+    //     ]
+    //   }
+    let histogram: Histograms = {
+        issueDateInterval: {
+            startDate: "2019-01-01T00:00:00+03:00",
+            endDate: "2022-08-31T23:59:59+03:00"
+        },
+        searchContext:
+        {
+            targetSearchEntitiesContext: {
+                targetSearchEntities: [
+                    {
+                        type: "company",
+                        //  sparkId: null,
+                        //   entityId: null,
+                        inn: 7710137066,
+                        maxFullness: true
+                    }
+                ],
+                onlyMainRole: true,
+                tonality: "any",
+                onlyWithRiskFactors: false
+            }
+        },
+        attributeFilters: {
+            excludeTechNews: true,
+            excludeAnnouncements: true,
+            excludeDigests: true
+        },
+        similarMode: "duplicates",
+        limit: 1000,
+        sortType: "sourceInfluence",
+        sortDirectionType: "desc",
+        intervalType: "month",
+        histogramTypes: [
+            "totalDocuments",
+            "riskFactors"
+        ]
+    }
+    //  getHistogram()
+    console.log(histogram)
+    getHistogram(histogram)
 
     return (
-        <div className={css.block}>
+        <div className={css.block} >
             <div className={css.flex}>
                 <div>
                     <h1 className={css.h1_title}>Найдите необходимые данные в пару кликов.</h1>
@@ -114,9 +196,61 @@ function Search() {
 
 
 
-        </div>
+        </div >
     );
+    function getHistogram(histogram: Histograms) {
+        try {
+            const options = {
+                // Будем использовать метод POST
+                method: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    'Authorization': "Bearer " + redux.token
+                },
+                // Добавим тело запроса
+                body: JSON.stringify({
+                    intervalType: histogram.intervalType,
+                    histogramTypes: histogram.histogramTypes,
+                    issueDateInterval: histogram.issueDateInterval,
+                    searchContext: histogram.searchContext,
+                    similarMode: histogram.similarMode,
+                    limit: histogram.limit,
+                    sortType: histogram.sortType,
+                    sortDirectionType: histogram.sortDirectionType,
+                    attributeFilters: histogram.attributeFilters
 
+                })
+
+            }
+            // Делаем запрос за данными
+            fetch(HOST + '/objectsearch/histograms', options)
+                .then(response => {
+                    if (!response.ok) {
+                        //  setError( response.json.)
+                        // response.json()
+                        throw new Error('Error occurred!')
+
+                    }
+                    return response.json()
+                })
+                .then(json => {
+                    var a2: string = json.accessToken;
+                    console.log("Token--", a2)
+
+
+                }
+
+                ).catch((err) => {
+                    //   setError(false)
+
+                    console.log(err, "error")
+                })
+
+        } catch {
+
+            console.log("errrer")
+        }
+    }
 
 }
 
