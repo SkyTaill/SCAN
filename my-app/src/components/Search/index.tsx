@@ -203,8 +203,9 @@ function Search() {
             const options = {
                 // Будем использовать метод POST
                 method: 'POST',
-                contentType: 'application/json',
+                //  contentType: 'application/json',
                 headers: {
+                    'Content-Type': 'application/json', 'charset': 'utf-8',
                     'Authorization': "Bearer " + redux.token
                 },
                 // Добавим тело запроса
@@ -234,8 +235,8 @@ function Search() {
                     return response.json()
                 })
                 .then(json => {
-                    var a2: string = json.accessToken;
-                    console.log("Token--", a2)
+                    var a2: string = json;
+                    console.log("VALUE-", a2)
 
 
                 }
