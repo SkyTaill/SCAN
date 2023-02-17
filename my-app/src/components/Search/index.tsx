@@ -10,7 +10,7 @@ import { HOST } from "../../API"
 function Search() {
 
 
-    const redux = useAppSelector(state => state.todos)
+    const redux = useAppSelector((state: { todos: any; }) => state.todos)
     //const autorize = false
     //let histogram:Histograms
     // {

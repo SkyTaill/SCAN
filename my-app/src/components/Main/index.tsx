@@ -3,13 +3,13 @@ import React from 'react';
 import css from "./index.module.css"
 import Home from "../HomePage"
 import Login from "../Login"
-import Search from '../Search';
+
 import { Routes, Route } from 'react-router-dom';
 import { useAppSelector } from 'src/hook';
 import PrivateRoute from '../SearchRoute';
 
 function Main() {
-    var autorize = useAppSelector(state => state.autorize)
+    var autorize = useAppSelector((state: { autorize: any; }) => state.autorize)
     return (
         <main className={css.main}>
             <Routes>

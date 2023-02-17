@@ -16,7 +16,7 @@
     "react-dom": "^18.2.0",
     "react-elastic-carousel": "^0.11.5",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.8.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-tinder-card": "^1.6.2",
     "redux": "^4.2.1",
@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "redux-devtools": "^3.7.0"
   }

@@ -10,7 +10,7 @@ import { useAppSelector } from 'src/hook';
 
 function Home() {
 
-    var autorize = useAppSelector(state => state.autorize)
+    var autorize = useAppSelector((state: { autorize: any; }) => state.autorize)
     //const autorize = false
 
     return (
@@ -196,7 +196,7 @@ function Home() {
     function Demo() {
 
 
-        var autorizeBoolem = useAppSelector(state => autorize.user)
+        var autorizeBoolem = useAppSelector((state: any) => autorize.user)
 
         if (autorizeBoolem) {
 

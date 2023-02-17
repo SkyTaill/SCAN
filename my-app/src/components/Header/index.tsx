@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     //needUpdate -false и isLoading -false значит мы уже собрали статистику и всю инфу отображаем в хеадер
     const [needUpdate, setNeedUpdate] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
-    const redux = useAppSelector(state => state.todos)
+    const redux = useAppSelector((state: { todos: any; }) => state.todos)
     const dispatch = useAppDispatch();
 
     const loginIn = () => {
