@@ -1,0 +1,164 @@
+.scan {
+    margin-top: 69px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.flex {
+    display: flex;
+}
+
+@import url(https://myfonts.ru/myfonts?fonts=ferry);
+
+.capital_h1_text {
+    width: 509px;
+    height: 96px;
+    left: 60px;
+    top: 162px;
+
+    font-family: 'Ferry';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.04em;
+
+    color: #000000;
+}
+
+.p_text {
+    width: 447px;
+    height: 48px;
+
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+
+    color: #000000;
+}
+
+.scan_pic {
+    width: 552.56px;
+    height: 369px;
+    margin-left: 200px;
+
+    background-image: url("../../svg/serchScan/pic_top.svg");
+}
+
+.text_search {
+    width: 234px;
+    height: 22px;
+
+    margin-top: -50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+
+    color: #949494;
+
+}
+
+.elementBox {
+    width: 1260px;
+    height: 158px;
+    left: 94px;
+    top: 571px;
+    display: flex;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 2px solid #029491;
+    border-radius: 10px;
+}
+
+.elementBoxLeftMenu {
+    width: 133px;
+    height: 158px;
+    box-sizing: border-box;
+    margin-top: -2px;
+    margin-left: -1px;
+    background: #029491;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.h3_menuText {
+    width: 78px;
+    height: 24px;
+    margin-left: 15px;
+    position: relative;
+    top: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+}
+
+.elemetShortStaat {
+    margin-left: 14px;
+    margin-right: 14px;
+    text-align: center;
+}
+
+.p_elemetShortStaat {
+
+
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+
+    color: #000000;
+}
+
+.line {
+    margin-top: 15px;
+    width: 2px;
+    height: 124px;
+
+
+    background: #949494;
+    opacity: 0.4;
+}
+
+.leftArrow {
+    width: 38px;
+    height: 38px;
+    margin-right: 15px;
+    margin-top: 60px;
+    background: url("../../svg/serchScan/lfArrow.svg");
+
+
+}
+
+.leftArrow:hover {
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.rightArrow {
+    width: 38px;
+    height: 38px;
+    margin-left: 15px;
+    margin-top: 60px;
+    background: url("../../svg/serchScan/lfArrow.svg");
+    transform: rotate(-180deg);
+
+}
+
+.rightArrow:hover {
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+}

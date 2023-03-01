@@ -8,9 +8,11 @@ import { addTodo, } from 'src/store/todoSlice';
 import { Routes, Route } from 'react-router-dom';
 import { useAppSelector } from 'src/hook';
 import PrivateRoute from '../SearchRoute';
+import SearchScanRoute from '../SearchScanRoute';
 
 function Main() {
     var autorize = useAppSelector((state: { autorize: any; }) => state.autorize)
+
 
     //тут проверяем наличие токена в локал сторедж
     //нужно дописать логику с протухшим токеном а то баг
@@ -26,6 +28,7 @@ function Main() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/search" element={<PrivateRoute autorize={autorize.user} />} />
+                <Route path="/search/scan" element={<SearchScanRoute autorize={true} />} />
 
             </Routes>
 
