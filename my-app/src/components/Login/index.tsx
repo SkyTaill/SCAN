@@ -95,9 +95,10 @@ const Login: React.FC = () => {
                         return response.json()
                     })
                     .then(json => {
-                        var a2: string = json.accessToken;
-                        console.log("Token--", a2)
-                        dispatch(addTodo(a2));
+                        var localToken: string = json.accessToken;
+                        console.log("Token--", localToken)
+                        dispatch(addTodo(localToken));
+                        localStorage.setItem('token', localToken);
 
                     }
 
