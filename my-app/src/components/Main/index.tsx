@@ -22,12 +22,14 @@ function Main() {
         console.log("token-t", a)
         dispatch(addTodo(a));
     }
+    //autorize.user
     return (
         <main className={css.main}>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/search" element={<PrivateRoute autorize={autorize.user} />} />
+
+                <Route path="/search" element={<PrivateRoute autorize={true} />} />
                 <Route path="/search/scan" element={<SearchScanRoute autorize={true} />} />
 
             </Routes>

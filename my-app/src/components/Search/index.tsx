@@ -2,15 +2,30 @@ import React from 'react';
 
 import css from "./index.module.css"
 
-
+import { useState } from 'react';
 import { useAppSelector } from 'src/hook';
 import { Histograms } from "../../DTO/histogram"
 import { HOST } from "../../API"
 
 function Search() {
 
+    const [INNBoolen, setINNBoolen] = useState(false)
+    const [INN, setINN] = useState("")
+
+    const [TonalBoolen, setTonalBoolen] = useState(false)
+    const [Tonal, setTonal] = useState("")
+
+    const [DocumentSumBoolen, setDocumentSumBoolen] = useState(false)
+    const [DocumentSum, setDocumentSum] = useState("")
 
     const redux = useAppSelector((state: { todos: any; }) => state.todos)
+
+
+    // let date = new Date();
+    const timeNow: string = "2023-03-24"
+
+
+
     //const autorize = false
     //let histogram:Histograms
     // {
@@ -90,9 +105,44 @@ function Search() {
             "riskFactors"
         ]
     }
-    //  getHistogram()
-    console.log(histogram)
-    getHistogram(histogram)
+
+
+
+    // console.log(histogram)
+    //  getHistogram(histogram)
+
+
+    const onChangeINN = (e: React.FormEvent<HTMLInputElement>) => {
+
+        if (e.currentTarget.value === "") {
+            setINNBoolen(false)
+
+        } else {
+            if (!/^(0|[1-9]\d*)$/.test(e.currentTarget.value)) {
+                setINNBoolen(false)
+            } else {
+
+                setINNBoolen(true)
+                setINN(e.currentTarget.value)
+            }
+
+        }
+
+    }
+
+    const onChangeDocumentSum = (e: React.FormEvent<HTMLInputElement>) => {
+        if (e.currentTarget.value === "") {
+            setDocumentSumBoolen(false)
+        } else {
+            if (!/^(0|[1-9]\d*)$/.test(e.currentTarget.value)) {
+                setDocumentSumBoolen(false)
+            } else {
+                setDocumentSumBoolen(true)
+                setDocumentSum(e.currentTarget.value)
+
+            }
+        }
+    }
 
     return (
         <div className={css.block} >
@@ -115,8 +165,8 @@ function Search() {
                     <div className={css.sectionBlock_margin}>
                         <div className={css.sectionBlock_leftBlock}>
                             <p className={css.p_text}>ИНН компании *</p>
-                            <input className={css.input}></input>
-                            <p className={css.p_text}>Тональность</p>
+                            <input className={INNBoolen ? css.input : css.inputError} onChange={onChangeINN}></input>
+                            <p className={css.p_text}>Тональность*</p>
 
 
                             <select id="selectvalue" className={`${css.input}  ${css.p_text}`}>
@@ -127,12 +177,12 @@ function Search() {
 
 
                             <p className={css.p_text}>Количество документов в выдаче *</p>
-                            <input className={css.input}></input>
+                            <input className={DocumentSumBoolen ? css.input : css.inputError} onChange={onChangeDocumentSum}></input>
 
                             <p className={`${css.p_text}  ${css.dateMarginTop}`}>Диапазон поиска *</p>
                             <div className={css.flexDate}>
-                                <input className={`${css.input}  ${css.p_text}`} type="date" />
-                                <input className={`${css.input} ${css.marginInput} ${css.p_text}`} type="date" />
+                                <input className={`${css.input}  ${css.p_text}`} type="date" max={timeNow} />
+                                <input className={`${css.input} ${css.marginInput} ${css.p_text}`} type="date" max={timeNow} />
                             </div>
                         </div>
                         <div>
