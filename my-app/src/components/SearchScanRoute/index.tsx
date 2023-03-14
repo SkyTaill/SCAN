@@ -1,7 +1,7 @@
 import Page404 from "../Page404";
 import css from "./index.module.css"
 import histogramDateInput from "../../mock/HistogramData.json"
-import { Analytics, data } from "../../DTO/histogramDate"
+import { data } from "../../DTO/HistogramDate"
 interface SearchScanRouteProps {
     autorize: boolean
 }

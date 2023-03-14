@@ -4,8 +4,8 @@ import css from "./index.module.css"
 
 import { useState } from 'react';
 import { useAppSelector } from 'src/hook';
-import { Histograms } from "../../DTO/histogram"
 import { HOST } from "../../API"
+import { Histograms } from "../../DTO/Histogram"
 
 function Search() {
 
