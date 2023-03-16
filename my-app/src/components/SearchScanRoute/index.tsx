@@ -2,11 +2,25 @@ import Page404 from "../Page404";
 import css from "./index.module.css"
 import histogramDateInput from "../../mock/HistogramData.json"
 import { data } from "../../DTO/HistogramDate"
+import documents from "../../mock/documents.json"
+import { idText } from "typescript";
 interface SearchScanRouteProps {
     autorize: boolean
 }
+
+
 const SearchScanRoute: React.FC<SearchScanRouteProps> = ({ autorize }) => {
     console.log(autorize, "searchScan")
+
+    // var markup: string = documents.ok.content.markup
+    // var title: string = documents.ok.title.text
+    // var url: string = documents.ok.url
+
+    // var oParser = new DOMParser();
+    // var oDOM = oParser.parseFromString(markup, "application/xml");
+    // print the name of the root element or error message
+    // console.log(oDOM.documentElement.nodeName == "parsererror" ? "error while parsing" : oDOM.documentElement.nodeName);
+
     var searchEl: number = 2203;
     if (autorize) {
         return (
@@ -87,10 +101,11 @@ const ShortStatistic = () => {
         <div className={css.flex}>
             {
                 statistic.map((element, id) => {
-                    console.log(element.data[0])
+
                     if (id < 7) {
                         return (
                             <ShortStatisticElement
+                                key={id}
                                 dateStart={element.data[0].date}
                                 all={element.data[0].value}
                                 risk={element.data[1].value}

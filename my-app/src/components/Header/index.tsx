@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             console.log("errrer")
         }
     }
-    console.log(infoUser, redux.completed)
+    // console.log(infoUser, redux.completed)
     if (needUpdate) {
         if (redux.completed) {
             setIsLoading(true)
