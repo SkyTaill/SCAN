@@ -108,6 +108,7 @@
 }
 
 .centr_pic {
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,6 +140,7 @@
 }
 
 .tarifBlockBeginner {
+    margin-top: 20px;
     width: 415px;
     height: 540px;
     left: 60px;
@@ -154,6 +156,7 @@
 
 .tarifBlock {
     box-sizing: border-box;
+    margin-top: 20px;
     width: 415px;
     height: 540px;
     left: 512px;
