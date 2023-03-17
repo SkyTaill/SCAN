@@ -3,26 +3,49 @@ import css from "./index.module.css"
 import histogramDateInput from "../../mock/HistogramData.json"
 import { data } from "../../DTO/HistogramDate"
 import documents from "../../mock/documents.json"
-import { idText } from "typescript";
+import { useState } from 'react';
 interface SearchScanRouteProps {
     autorize: boolean
 }
 
+interface DocumentObj {
+    markup: string,
+    title: string,
+    url: string,
+    img: string,
+    words: number
+}
 
 const SearchScanRoute: React.FC<SearchScanRouteProps> = ({ autorize }) => {
-    console.log(autorize, "searchScan")
 
-    // var markup: string = documents.ok.content.markup
-    // var title: string = documents.ok.title.text
-    // var url: string = documents.ok.url
+    const [page, setUsePage] = useState(0)
+    const [allPage, setAllPage] = useState(0)
+    const [needUpdate, setNeedUpdate] = useState(false)
 
-    // var oParser = new DOMParser();
-    // var oDOM = oParser.parseFromString(markup, "application/xml");
-    // print the name of the root element or error message
-    // console.log(oDOM.documentElement.nodeName == "parsererror" ? "error while parsing" : oDOM.documentElement.nodeName);
+    var arrayDocumentObj = [];
+    //тестовые данные
+    var document: DocumentObj = {
+        markup: "Кто такой Data Scientist и чем он занимается? Data Scientist — это специалист, который работает с большими массивами данных, чтобы с их помощью решить задачи бизнеса. Простой пример использования больших данных и искусственного интеллекта — умные ленты в социальных сетях. На основе ваших просмотров и лайков алгоритм выдает рекомендации с контентом, который может быть вам интересен. Эту модель создал и обучил дата-сайентист, и скорее всего, не один.В небольших компаниях и стартапах дата-сайентист делает все: собирает и очищает данные, создает математическую модель для их анализа, тестирует ее и презентует готовое решение бизнесу",
+        title: documents.ok.title.text,
+        url: documents.ok.url,
+        img: 'https://storage.scan-interfax.ru/images/1%3A0JPQqdGM0JNWCdCzf2Jt0LHQotGV0ZUh0ZbRlBXCt0Je0JHQruKAnDcUXkZQ0YvQscKn0KjQlsKu0K%2FSkdGXfOKAsF3QkjrRnCRmGCFFBybQoNGL0ZMhEFkC4oCYaNC9a9GO0KFYwqwOeNGO0JdUDGzihKJXTNC%2B0ZzRinE%3D',
+        words: 232
+    }
+    var markup: string = documents.ok.content.markup
+    var oParser = new DOMParser();
+    var oDOM = oParser.parseFromString(markup, "text/xml");
+
+    arrayDocumentObj.push(document)
+    arrayDocumentObj.push(document)
+    arrayDocumentObj.push(document)
+    arrayDocumentObj.push(document)
+    arrayDocumentObj.push(document)
+    arrayDocumentObj.push(document)
+    console.log("asd")
 
     var searchEl: number = 2203;
     if (autorize) {
+
         return (
             <section className={css.scan}>
                 <div className={css.flex}>
@@ -67,20 +90,24 @@ const SearchScanRoute: React.FC<SearchScanRouteProps> = ({ autorize }) => {
                         Список документов
                     </h1>
                     <div className={`${css.documentMargin} ${css.centr}`}>
-                        <GetListOfDockument
-                            img={'https://storage.scan-interfax.ru/images/1%3A0JPQqdGM0JNWCdCzf2Jt0LHQotGV0ZUh0ZbRlBXCt0Je0JHQruKAnDcUXkZQ0YvQscKn0KjQlsKu0K%2FSkdGXfOKAsF3QkjrRnCRmGCFFBybQoNGL0ZMhEFkC4oCYaNC9a9GO0KFYwqwOeNGO0JdUDGzihKJXTNC%2B0ZzRinE%3D'}
-                            head={"Скиллфэктори - лучшая онлайн-школа для будущих айтишников"}
-                            text={"Кто такой Data Scientist и чем он занимается? Data Scientist — это специалист, который работает с большими массивами данных, чтобы с их помощью решить задачи бизнеса. Простой пример использования больших данных и искусственного интеллекта — умные ленты в социальных сетях. На основе ваших просмотров и лайков алгоритм выдает рекомендации с контентом, который может быть вам интересен. Эту модель создал и обучил дата-сайентист, и скорее всего, не один.В небольших компаниях и стартапах дата-сайентист делает все: собирает и очищает данные, создает математическую модель для их анализа, тестирует ее и презентует готовое решение бизнесу"}
-                            tag={"Технические новости"}
-                            words={123}
-                        />
-                        <GetListOfDockument
-                            img={'https://storage.scan-interfax.ru/images/1%3A0JPQqdGM0JNWCdCzf2Jt0LHQotGV0ZUh0ZbRlBXCt0Je0JHQruKAnDcUXkZQ0YvQscKn0KjQlsKu0K%2FSkdGXfOKAsF3QkjrRnCRmGCFFBybQoNGL0ZMhEFkC4oCYaNC9a9GO0KFYwqwOeNGO0JdUDGzihKJXTNC%2B0ZzRinE%3D'}
-                            head={"fdsaadasdasd"}
-                            text={"Кто такой Data Scientist и чем он занимается? Data Scientist — это специалист, который работает с большими массивами данных, чтобы с их помощью решить задачи бизнеса. Простой пример использования больших данных и искусственного интеллекта — умные ленты в социальных сетях. На основе ваших просмотров и лайков алгоритм выдает рекомендации с контентом, который может быть вам интересен. Эту модель создал и обучил дата-сайентист, и скорее всего, не один.В небольших компаниях и стартапах дата-сайентист делает все: собирает и очищает данные, создает математическую модель для их анализа, тестирует ее и презентует готовое решение бизнесу"}
-                            tag={"Технические новости"}
-                            words={123}
-                        />
+                        {
+                            arrayDocumentObj.map((element, id) => {
+
+                                return (
+                                    <GetListOfDockument
+                                        key={id}
+                                        img={element.img}
+                                        head={element.title}
+                                        text={element.markup}
+                                        tag={"Технические новости"}
+                                        words={element.words}
+                                        url={element.url}
+                                    />
+                                )
+
+                            })
+                        }
+
 
                     </div>
 
@@ -155,12 +182,16 @@ interface GetListOfDockumentProps {
     head: string,
     text: string,
     tag: string,
+    url: string,
     words: number
 
 }
-const GetListOfDockument: React.FC<GetListOfDockumentProps> = ({ img, head, text, tag, words }) => {
-    return (
+const GetListOfDockument: React.FC<GetListOfDockumentProps> = ({ img, head, text, tag, words, url }) => {
 
+    const click = () => {
+        window.location.href = url;
+    }
+    return (
         <div className={css.element}>
             <div className={css.element_box}>
                 <h1 className={css.h1_element}>{head}</h1>
@@ -172,21 +203,15 @@ const GetListOfDockument: React.FC<GetListOfDockumentProps> = ({ img, head, text
                 <p className={css.element_p_boodytext}>{text}</p>
 
                 <div className={css.flex}>
-                    <button className={css.element_button}>Читать в источнике</button>
+                    <button className={css.element_button} onClick={click}>Читать в источнике</button>
                     <h6 className={css.element_h6_text}>{words} слов</h6>
                 </div>
-
-
-
             </div>
-
-
-
         </div>
-
-
     )
 }
+
+
 
 
 export default SearchScanRoute;
