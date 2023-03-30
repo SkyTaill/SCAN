@@ -169,3 +169,43 @@
 
     color: #FFFFFF;
 }
+
+.buttonLogIn {
+    width: 305px;
+    height: 59px;
+
+    border: none;
+    outline: none;
+    background: #b8bcd3;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+}
+
+.buttonLogInTrue {
+    width: 305px;
+    height: 59px;
+
+    border: none;
+    outline: none;
+    background: #0d28c2;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+}

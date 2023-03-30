@@ -10,13 +10,16 @@ import { Histograms } from "../../DTO/Histogram"
 function Search() {
 
     const [INNBoolen, setINNBoolen] = useState(false)
-    const [INN, setINN] = useState("")
+    const [INN, setINN] = useState(0)
 
-    const [TonalBoolen, setTonalBoolen] = useState(false)
-    const [Tonal, setTonal] = useState("")
+    // const [TonalBoolen, setTonalBoolen] = useState(false)
+    const [DateStart, setDateStart] = useState("2019-01-01T00:00:00+03:00")
+    const [DateEnd, setDateEnd] = useState("2022-08-31T23:59:59+03:00")
+    const [Tonal, setTonal] = useState("any")
+
 
     const [DocumentSumBoolen, setDocumentSumBoolen] = useState(false)
-    const [DocumentSum, setDocumentSum] = useState("")
+    const [DocumentSum, setDocumentSum] = useState(0)
 
     const redux = useAppSelector((state: { todos: any; }) => state.todos)
 
@@ -123,7 +126,7 @@ function Search() {
             } else {
 
                 setINNBoolen(true)
-                setINN(e.currentTarget.value)
+                setINN(parseInt(e.currentTarget.value))
             }
 
         }
@@ -138,10 +141,135 @@ function Search() {
                 setDocumentSumBoolen(false)
             } else {
                 setDocumentSumBoolen(true)
-                setDocumentSum(e.currentTarget.value)
+                setDocumentSum(parseInt(e.currentTarget.value))
 
             }
         }
+    }
+
+    const onChangeDateStart = (e: React.FormEvent<HTMLInputElement>) => {
+        setDateStart(e.currentTarget.value)
+        // setTonal()
+    }
+    const onChangeDateEnd = (e: React.FormEvent<HTMLInputElement>) => {
+        setDateEnd(e.currentTarget.value)
+        // setTonal()
+    }
+
+    const searchButtom = () => {
+
+        var select = (document.getElementById('selectvalue')) as HTMLSelectElement;
+        if (select != null) {
+            var sel = select.selectedIndex;
+            if (sel === 0) {
+                setTonal("positive")
+            }
+            if (sel === 1) {
+                setTonal("negative")
+            }
+            if (sel === 2) {
+                setTonal("any")
+            }
+        }
+        var maxFullness: boolean = false;
+        var onlyMainRole: boolean = false;
+        var onlyWithRiskFactors: boolean = false;
+        var excludeTechNews: boolean = false;
+        var excludeAnnouncements: boolean = false;
+        var excludeDigests: boolean = false;
+
+        var checkbox = document.getElementById(
+            'scales1',
+        ) as HTMLInputElement | null;
+
+        if (checkbox != null) {
+            //  checkbox.checked = true;
+            maxFullness = checkbox.checked
+        }
+
+        var checkbox = document.getElementById(
+            'scales2',
+        ) as HTMLInputElement | null;
+
+        if (checkbox != null) {
+            //  checkbox.checked = true;
+            onlyMainRole = checkbox.checked
+        }
+
+        var checkbox = document.getElementById(
+            'scales3',
+        ) as HTMLInputElement | null;
+
+        if (checkbox != null) {
+            //  checkbox.checked = true;
+            onlyWithRiskFactors = checkbox.checked
+        }
+
+        var checkbox = document.getElementById(
+            'scales4',
+        ) as HTMLInputElement | null;
+
+        if (checkbox != null) {
+            //  checkbox.checked = true;
+            excludeTechNews = checkbox.checked
+        }
+
+        var checkbox = document.getElementById(
+            'scales5',
+        ) as HTMLInputElement | null;
+
+        if (checkbox != null) {
+            //  checkbox.checked = true;
+            excludeAnnouncements = checkbox.checked
+        }
+
+        var checkbox = document.getElementById(
+            'scales6',
+        ) as HTMLInputElement | null;
+
+        if (checkbox != null) {
+            //  checkbox.checked = true;
+            excludeDigests = checkbox.checked
+        }
+
+        let histogram: Histograms = {
+            issueDateInterval: {
+                startDate: DateStart,
+                endDate: DateEnd
+            },
+            searchContext:
+            {
+                targetSearchEntitiesContext: {
+                    targetSearchEntities: [
+                        {
+                            type: "company",
+                            //  sparkId: null,
+                            //   entityId: null,
+                            inn: INN,
+                            maxFullness: maxFullness
+                        }
+                    ],
+                    onlyMainRole: onlyMainRole,
+                    tonality: Tonal,
+                    onlyWithRiskFactors: onlyWithRiskFactors
+                }
+            },
+            attributeFilters: {
+                excludeTechNews: excludeTechNews,
+                excludeAnnouncements: excludeAnnouncements,
+                excludeDigests: excludeDigests
+            },
+            similarMode: "duplicates",
+            limit: DocumentSum,
+            sortType: "sourceInfluence",
+            sortDirectionType: "desc",
+            intervalType: "month",
+            histogramTypes: [
+                "totalDocuments",
+                "riskFactors"
+            ]
+        }
+        getHistogram(histogram)
     }
 
     return (
@@ -169,8 +297,8 @@ function Search() {
                             <p className={css.p_text}>Тональность*</p>
 
 
-                            <select id="selectvalue" className={`${css.input}  ${css.p_text}`}>
-                                <option className={`${css.input}  ${css.p_text}`}>позитивная</option>
+                            <select id="selectvalue" className={`${css.input}  ${css.p_text}`} >
+                                <option className={`${css.input}  ${css.p_text}`} >позитивная</option>
                                 <option className={`${css.input}  ${css.p_text}`}>негативная</option>
                                 <option className={`${css.input}  ${css.p_text}`}>любая</option>
                             </select>
@@ -181,8 +309,10 @@ function Search() {
 
                             <p className={`${css.p_text}  ${css.dateMarginTop}`}>Диапазон поиска *</p>
                             <div className={css.flexDate}>
-                                <input className={`${css.input}  ${css.p_text}`} type="date" max={timeNow} />
-                                <input className={`${css.input} ${css.marginInput} ${css.p_text}`} type="date" max={timeNow} />
+                                <input className={`${css.input}  ${css.p_text}`} type="date" max={timeNow} onChange={onChangeDateStart} />
+                                <input className={`${css.input} ${css.marginInput} ${css.p_text}`} type="date" max={timeNow}
+                                    onChange={onChangeDateEnd}
+                                />
                             </div>
                         </div>
                         <div>
@@ -230,7 +360,7 @@ function Search() {
                                     </label>
                                 </div>
 
-                                <button className={css.buttonLogIn} style={{ marginTop: "80px" }} >Поиск</button>
+                                <Button />
 
                             </div>
                         </div>
@@ -248,6 +378,18 @@ function Search() {
 
         </div >
     );
+    function Button() {
+
+        if (INN && DocumentSum) {
+            return (
+                <button className={css.buttonLogInTrue} style={{ marginTop: "80px" }} onClick={searchButtom}>Поиск</button>
+            )
+        } else
+            return (
+                <button className={css.buttonLogIn} style={{ marginTop: "80px" }} >Поиск</button>
+            )
+    }
+
     function getHistogram(histogram: Histograms) {
         try {
             const options = {
@@ -286,7 +428,7 @@ function Search() {
                 })
                 .then(json => {
                     var a2: string = json;
-                    console.log("VALUE-", a2)
+                    console.log("Результат выполнения-", a2)
 
 
                 }
