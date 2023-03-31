@@ -6,8 +6,17 @@ import { useState } from 'react';
 import { useAppSelector } from 'src/hook';
 import { HOST } from "../../API"
 import { Histograms } from "../../DTO/Histogram"
+import { Link } from 'react-router-dom';
+import { data } from "../../DTO/HistogramDate"
+import { setTimeout } from "timers/promises";
 
-function Search() {
+
+
+interface SearchProps {
+    setJson: any
+}
+
+const Search: React.FC<SearchProps> = ({ setJson }) => {
 
     const [INNBoolen, setINNBoolen] = useState(false)
     const [INN, setINN] = useState(0)
@@ -22,7 +31,9 @@ function Search() {
     const [DocumentSum, setDocumentSum] = useState(0)
 
     const redux = useAppSelector((state: { todos: any; }) => state.todos)
-
+    var a: data;
+    const [Json, setJsonSearch] = useState<data>()
+    //setJson("asdasd2222222222")
 
     // let date = new Date();
     const timeNow: string = "2023-03-24"
@@ -270,6 +281,14 @@ function Search() {
             ]
         }
         getHistogram(histogram)
+        console.log("JSON1-", Json)
+        // setJson(Json)
+
+
+
+
+        // window.location.replace("/search/scan");
+
     }
 
     return (
@@ -382,7 +401,9 @@ function Search() {
 
         if (INN && DocumentSum) {
             return (
+                // <Link to={`/search/scan`} >
                 <button className={css.buttonLogInTrue} style={{ marginTop: "80px" }} onClick={searchButtom}>Поиск</button>
+                //  </Link>
             )
         } else
             return (
@@ -391,6 +412,7 @@ function Search() {
     }
 
     function getHistogram(histogram: Histograms) {
+        var jsonR: string = ""
         try {
             const options = {
                 // Будем использовать метод POST
@@ -427,8 +449,13 @@ function Search() {
                     return response.json()
                 })
                 .then(json => {
-                    var a2: string = json;
-                    console.log("Результат выполнения-", a2)
+                    //  console.log("------", json)
+                    setJsonSearch(json)
+
+                    console.log("2221", json)
+                    setJson(json)
+                    //   window.location.replace("/");
+                    // setJson(jsonR)
 
 
                 }
@@ -443,6 +470,7 @@ function Search() {
 
             console.log("errrer")
         }
+
     }
 
 }

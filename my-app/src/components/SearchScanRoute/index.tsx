@@ -4,8 +4,10 @@ import histogramDateInput from "../../mock/HistogramData.json"
 import { data } from "../../DTO/HistogramDate"
 import documents from "../../mock/documents.json"
 import { useState } from 'react';
+import { json } from "stream/consumers";
 interface SearchScanRouteProps {
-    autorize: boolean
+    autorize: boolean,
+    Json: any
 }
 
 interface DocumentObj {
@@ -16,8 +18,8 @@ interface DocumentObj {
     words: number
 }
 
-const SearchScanRoute: React.FC<SearchScanRouteProps> = ({ autorize }) => {
-
+const SearchScanRoute: React.FC<SearchScanRouteProps> = ({ autorize, Json }) => {
+    console.log("dddddddddd3", Json)
     const [page, setUsePage] = useState(0)
     const [allPage, setAllPage] = useState(0)
     const [needUpdate, setNeedUpdate] = useState(false)

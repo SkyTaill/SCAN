@@ -1,13 +1,16 @@
 import Page404 from "../Page404";
 import Search from "../Search";
+import { useState } from 'react';
 interface PrivateRouteProps {
-    autorize: boolean
+    autorize: boolean,
+    setJson: any
 }
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ autorize }) => {
-    console.log(autorize, "search")
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ autorize, setJson }) => {
+
+    //console.log(autorize, "search")
     if (autorize) {
         return (
-            <Search />
+            <Search setJson={setJson} />
         )
     }
     return (
