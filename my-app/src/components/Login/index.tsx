@@ -6,6 +6,7 @@ import { useAppDispatch } from 'src/hook';
 import { addTodo, } from 'src/store/todoSlice';
 //import { useAppSelector } from 'src/hook';
 import { HOST } from "../../API"
+import { redirect, useNavigate } from "react-router-dom";
 // interface ToDoItemProps{
 //     id: string;
 //     title: string
@@ -14,11 +15,12 @@ import { HOST } from "../../API"
 
 
 const Login: React.FC = () => {
+    const [autorize, setAutorize] = useState(false)
     const [loginBoolen, setLoginBoolen] = useState(false)
     const [passwordBoolen, setPasswordBoolen] = useState(false)
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     //const token = useAppSelector(state => state.todos)
     //  console.log(token)
@@ -61,7 +63,7 @@ const Login: React.FC = () => {
     }
 
     const onClick = async () => {
-
+        console.log("dsada")
         if (loginBoolen !== false && passwordBoolen !== false) {
 
 
@@ -99,6 +101,7 @@ const Login: React.FC = () => {
                         console.log("Token--", localToken)
                         dispatch(addTodo(localToken));
                         localStorage.setItem('token', localToken);
+                        setAutorize(true)
 
 
                     }
@@ -121,6 +124,9 @@ const Login: React.FC = () => {
             }
 
 
+        }
+        if (autorize) {
+            navigate('/')
         }
 
     }

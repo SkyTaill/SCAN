@@ -53,10 +53,14 @@ const Header: React.FC = () => {
                 ).catch((err) => {
                     //   setError(false)
                     console.log(err, options, "error")
+                    localStorage.clear();
+                    dispatch(addAutorizeUser(false))
                 })
 
         } catch {
             console.log("errrer")
+            localStorage.clear();
+            dispatch(addAutorizeUser(false))
         }
     }
     // console.log(infoUser, redux.completed)
