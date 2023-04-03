@@ -125,11 +125,19 @@ const Login: React.FC = () => {
 
 
         }
+
+
+    }
+
+    // те в фоне проверяем каждую секунду что у нас произошло изменение
+    var myFunction = function () {
         if (autorize) {
             navigate('/')
         }
+    };
+    setTimeout(myFunction, 1000);
 
-    }
+
     return (
         <div>
             <div className={css.flex_block}>
