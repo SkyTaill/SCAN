@@ -237,3 +237,31 @@
     width: 70px;
     margin-right: 5px;
 }
+
+
+@media (max-device-width: 930px) {
+
+    .menu_item {
+        display: none;
+    }
+
+    .registate {
+        display: none;
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 930px) {
+    .menu_item {
+        display: none;
+    }
+
+    .registate {
+        display: none;
+
+    }
+
+}

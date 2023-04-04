@@ -1,3 +1,8 @@
+:root {
+    --max-hight: 1024px;
+}
+
+
 .main {
 
     background: white;
@@ -5,6 +10,35 @@
     flex-grow: 1;
 
 }
+
+@media (max-device-width: 1400px) {
+
+    .backround_img {
+        display: none;
+    }
+
+    .bigPic {
+        display: none;
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 1400px) {
+    .backround_img {
+        display: none;
+    }
+
+    .bigPic {
+        display: none;
+
+    }
+
+}
+
+
 
 .flex_block {
     display: flex;

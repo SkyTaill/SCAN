@@ -106,6 +106,7 @@ function Home() {
                                 </div>
                             </div>
 
+
                             <div className={css.paddingTarif}>
                                 <div className={css.flex}>
                                     <h3 className={css.cost}>1299 ₽</h3>

@@ -49,16 +49,7 @@ const Slider = props => {
                     return (
                         <div key={elem.id} className={css.slider_item}>
 
-                            <div className={css.scan} style={{
-
-                                // backgroundColor: "yellow",
-
-                                height: "50px",
-                                width: "50px",
-                                backgroundImage: `url(${elem.svg})`
-                                // backgroundImage: `url("../times.png")`
-
-                            }}></div>
+                            <div className={css.scan}></div>
 
                             <p className={css.box_text}>{elem.date}</p>
                         </div>

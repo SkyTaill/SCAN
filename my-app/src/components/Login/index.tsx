@@ -149,60 +149,62 @@ const Login: React.FC = () => {
                         на тариф, необходимо авторизоваться.</h1>
                     <div className={css.picCharacters}></div>
                 </div>
-                <div className={css.picLock}>
+                <div>
+                    <div className={css.picLock}>
 
-                </div>
-                <div className={css.loginBlock}>
-                    <div className={css.loginMenu}>
-                        <div className={css.flex_block}>
-                            <div>
-                                <h4 className={css.logInText}>
-                                    Войти
-                                </h4>
-                                <div className={css.loginLine}>
+                    </div>
+                    <div className={css.loginBlock}>
+                        <div className={css.loginMenu}>
+                            <div className={css.flex_block}>
+                                <div>
+                                    <h4 className={css.logInText}>
+                                        Войти
+                                    </h4>
+                                    <div className={css.loginLine}>
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div className={css.loginMenu}>
-                                <h4 className={css.registrMenuText}>
-                                    Зарегистрироваться
-                                </h4>
-                                <div className={css.registrLine}>
+                                <div className={css.loginMenu}>
+                                    <h4 className={css.registrMenuText}>
+                                        Зарегистрироваться
+                                    </h4>
+                                    <div className={css.registrLine}>
 
+                                    </div>
                                 </div>
+
                             </div>
+                            <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Логин или номер телефона:</p>
 
-                        </div>
-                        <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Логин или номер телефона:</p>
+                            <input type="text" className={loginBoolen ? css.input : css.inputErr} onChange={onChangeLogin} />
 
-                        <input type="text" className={loginBoolen ? css.input : css.inputErr} onChange={onChangeLogin} />
+                            {loginBoolen ? null : (<p className={css.textErr}>Введите корректные данные</p>)}
 
-                        {loginBoolen ? null : (<p className={css.textErr}>Введите корректные данные</p>)}
+                            <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Пароль:</p>
+                            <input type="password" className={passwordBoolen ? css.input : css.inputErr} onChange={onChangePassword} />
 
-                        <p className={css.textLoginBox} style={{ marginTop: "40px" }}>Пароль:</p>
-                        <input type="password" className={passwordBoolen ? css.input : css.inputErr} onChange={onChangePassword} />
-
-                        {passwordBoolen ? null : (<p className={css.textErr}>Неправильный пароль</p>)}
+                            {passwordBoolen ? null : (<p className={css.textErr}>Неправильный пароль</p>)}
 
 
-                        {loginBoolen ? (passwordBoolen ? <button className={css.buttonLogInValidTrue} onClick={onClick} style={{ marginTop: "40px" }}>Войти</button>
-                            : <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>) : <button className={css.buttonLogIn} style={{ marginTop: "40px" }} >Войти</button>
-                        }
+                            {loginBoolen ? (passwordBoolen ? <button className={css.buttonLogInValidTrue} onClick={onClick} style={{ marginTop: "40px" }}>Войти</button>
+                                : <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>) : <button className={css.buttonLogIn} style={{ marginTop: "40px" }} >Войти</button>
+                            }
 
 
-                        <button className={css.backupPassword} >Восстановить пароль</button>
-                        <p className={css.textLoginBox} >Войти через:</p>
-                        <div className={css.flex_block}>
-                            <div className={css.blockAlterLog}>
-                                <div className={css.picGoogle}></div>
+                            <button className={css.backupPassword} >Восстановить пароль</button>
+                            <p className={css.textLoginBox} >Войти через:</p>
+                            <div className={css.flex_block}>
+                                <div className={css.blockAlterLog}>
+                                    <div className={css.picGoogle}></div>
+                                </div>
+                                <div className={css.blockAlterLog}>
+                                    <div className={css.picFaceBook}></div>
+                                </div>
+                                <div className={css.blockAlterLog}>
+                                    <div className={css.picYandex}></div>
+                                </div>
+
                             </div>
-                            <div className={css.blockAlterLog}>
-                                <div className={css.picFaceBook}></div>
-                            </div>
-                            <div className={css.blockAlterLog}>
-                                <div className={css.picYandex}></div>
-                            </div>
-
                         </div>
                     </div>
                 </div>

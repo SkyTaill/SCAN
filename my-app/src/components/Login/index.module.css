@@ -249,7 +249,7 @@
 .textErr {
     width: 203px;
     height: 17px;
-    position: fixed;
+    position: absolute;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -295,4 +295,33 @@
 .buttonLogInValidTrue:active {
     background: #3b52e6;
     box-shadow: 0 3px #3b52e6 inset;
+}
+
+
+@media (max-device-width: 1430px) {
+
+    .h1Text {
+        display: none;
+    }
+
+    .picCharacters {
+        display: none;
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 1430px) {
+    .h1Text {
+        display: none;
+    }
+
+    .picCharacters {
+        display: none;
+
+    }
+
+
 }
