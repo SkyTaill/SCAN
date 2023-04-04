@@ -6,11 +6,9 @@ import { useState } from 'react';
 import { useAppSelector } from 'src/hook';
 import { HOST } from "../../API"
 import { Histograms } from "../../DTO/Histogram"
-import { Link } from 'react-router-dom';
 import { data } from "../../DTO/HistogramDate"
-import { setTimeout } from "timers/promises";
-
-
+import { useNavigate } from "react-router-dom";
+import histogramDateInput from "../../mock/HistogramData.json"
 
 interface SearchProps {
     setJson: any
@@ -20,108 +18,55 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
 
     const [INNBoolen, setINNBoolen] = useState(false)
     const [INN, setINN] = useState(0)
-
-    // const [TonalBoolen, setTonalBoolen] = useState(false)
+    const navigate = useNavigate();
     const [DateStart, setDateStart] = useState("2019-01-01T00:00:00+03:00")
     const [DateEnd, setDateEnd] = useState("2022-08-31T23:59:59+03:00")
     const [Tonal, setTonal] = useState("any")
-
-
     const [DocumentSumBoolen, setDocumentSumBoolen] = useState(false)
     const [DocumentSum, setDocumentSum] = useState(0)
 
     const redux = useAppSelector((state: { todos: any; }) => state.todos)
-    var a: data;
-    const [Json, setJsonSearch] = useState<data>()
-    //setJson("asdasd2222222222")
 
-    // let date = new Date();
+    var statistic: data[] = histogramDateInput.data
     const timeNow: string = "2023-03-24"
 
-
-
-    //const autorize = false
-    //let histogram:Histograms
-    // {
-    //     "issueDateInterval": {
-    //       "startDate": "2019-01-01T00:00:00+03:00",
-    //       "endDate": "2022-08-31T23:59:59+03:00"
+    // let histogram: Histograms = {
+    //     issueDateInterval: {
+    //         startDate: "2019-01-01T00:00:00+03:00",
+    //         endDate: "2022-08-31T23:59:59+03:00"
     //     },
-    //     "searchContext": {
-    //       "targetSearchEntitiesContext": {
-    //         "targetSearchEntities": [
-    //           {
-    //             "type": "company",
-
-    //             "inn": 7710137066,
-    //             "maxFullness": true
-
-    //           }
-    //         ],
-    //         "onlyMainRole": true,
-    //         "tonality": "any",
-    //         "onlyWithRiskFactors": false
-
-
-    //       }
-
+    //     searchContext:
+    //     {
+    //         targetSearchEntitiesContext: {
+    //             targetSearchEntities: [
+    //                 {
+    //                     type: "company",
+    //                     //  sparkId: null,
+    //                     //   entityId: null,
+    //                     inn: 7710137066,
+    //                     maxFullness: true
+    //                 }
+    //             ],
+    //             onlyMainRole: true,
+    //             tonality: "any",
+    //             onlyWithRiskFactors: false
+    //         }
     //     },
-
-    //     "attributeFilters": {
-    //       "excludeTechNews": true,
-    //       "excludeAnnouncements": true,
-    //       "excludeDigests": true
+    //     attributeFilters: {
+    //         excludeTechNews: true,
+    //         excludeAnnouncements: true,
+    //         excludeDigests: true
     //     },
-    //     "similarMode": "duplicates",
-    //     "limit": 1000,
-    //     "sortType": "sourceInfluence",
-    //     "sortDirectionType": "desc",
-    //     "intervalType": "month",
-    //     "histogramTypes": [
-    //       "totalDocuments",
-    //       "riskFactors"
+    //     similarMode: "duplicates",
+    //     limit: 1000,
+    //     sortType: "sourceInfluence",
+    //     sortDirectionType: "desc",
+    //     intervalType: "month",
+    //     histogramTypes: [
+    //         "totalDocuments",
+    //         "riskFactors"
     //     ]
-    //   }
-    let histogram: Histograms = {
-        issueDateInterval: {
-            startDate: "2019-01-01T00:00:00+03:00",
-            endDate: "2022-08-31T23:59:59+03:00"
-        },
-        searchContext:
-        {
-            targetSearchEntitiesContext: {
-                targetSearchEntities: [
-                    {
-                        type: "company",
-                        //  sparkId: null,
-                        //   entityId: null,
-                        inn: 7710137066,
-                        maxFullness: true
-                    }
-                ],
-                onlyMainRole: true,
-                tonality: "any",
-                onlyWithRiskFactors: false
-            }
-        },
-        attributeFilters: {
-            excludeTechNews: true,
-            excludeAnnouncements: true,
-            excludeDigests: true
-        },
-        similarMode: "duplicates",
-        limit: 1000,
-        sortType: "sourceInfluence",
-        sortDirectionType: "desc",
-        intervalType: "month",
-        histogramTypes: [
-            "totalDocuments",
-            "riskFactors"
-        ]
-    }
-
-
-
+    // }
     // console.log(histogram)
     //  getHistogram(histogram)
 
@@ -281,14 +226,6 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
             ]
         }
         getHistogram(histogram)
-        console.log("JSON1-", Json)
-        // setJson(Json)
-
-
-
-
-        // window.location.replace("/search/scan");
-
     }
 
     return (
@@ -411,7 +348,7 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
             )
     }
 
-    function getHistogram(histogram: Histograms) {
+    async function getHistogram(histogram: Histograms) {
         var jsonR: string = ""
         try {
             const options = {
@@ -433,16 +370,13 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                     sortType: histogram.sortType,
                     sortDirectionType: histogram.sortDirectionType,
                     attributeFilters: histogram.attributeFilters
-
                 })
 
             }
             // Делаем запрос за данными
-            fetch(HOST + '/objectsearch/histograms', options)
+            await fetch(HOST + '/objectsearch/histograms', options)
                 .then(response => {
                     if (!response.ok) {
-                        //  setError( response.json.)
-                        // response.json()
                         throw new Error('Error occurred!')
 
                     }
@@ -450,24 +384,24 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                 })
                 .then(json => {
                     //  console.log("------", json)
-                    setJsonSearch(json)
 
-                    console.log("2221", json)
+                    //!!!!!!!!!!!Раскомить!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    console.log("2221", histogram)
                     setJson(json)
-                    //   window.location.replace("/");
-                    // setJson(jsonR)
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    //setJsonSearch(statistic)
 
+                    //ввод тестового значения
 
+                    // setJson(statistic)
+                    navigate("/search/scan")
                 }
 
                 ).catch((err) => {
-                    //   setError(false)
-
                     console.log(err, "error")
                 })
 
         } catch {
-
             console.log("errrer")
         }
 

@@ -62,80 +62,83 @@ const Login: React.FC = () => {
         }
     }
 
-    const onClick = async () => {
+    const onClick = () => {
         console.log("dsada")
         if (loginBoolen !== false && passwordBoolen !== false) {
+            postGetToken()
+        }
+    }
 
+    var postGetToken = async function () {
 
-            try {
-                const options = {
-                    // Будем использовать метод POST
-                    method: 'POST',
-                    // Добавим тело запроса
-                    body: JSON.stringify({
-                        login: login,
-                        password: password
+        try {
+            const options = {
+                // Будем использовать метод POST
+                method: 'POST',
+                // Добавим тело запроса
+                body: JSON.stringify({
+                    login: login,
+                    password: password
 
-                    }),
-                    // Дополнительный заголовое с описанием типа данных,
-                    // которые мы отправляем серверу. В данном случае
-                    // сервер jsonplaceholder будет знать, как ему
-                    // обрабатывать запрос
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
+                }),
+                // Дополнительный заголовое с описанием типа данных,
+                // которые мы отправляем серверу. В данном случае
+                // сервер jsonplaceholder будет знать, как ему
+                // обрабатывать запрос
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
                 }
-                // Делаем запрос за данными
-                await fetch(HOST + '/account/login', options)
-                    .then(response => {
-                        if (!response.ok) {
-                            //  setError( response.json.)
-                            // response.json()
-                            throw new Error('Error occurred!')
-
-                        }
-                        return response.json()
-                    })
-                    .then(json => {
-                        var localToken: string = json.accessToken;
-                        console.log("Token--", localToken)
-                        dispatch(addTodo(localToken));
-                        localStorage.setItem('token', localToken);
-                        setAutorize(true)
-
+            }
+            // Делаем запрос за данными
+            await fetch(HOST + '/account/login', options)
+                .then(response => {
+                    if (!response.ok) {
+                        //  setError( response.json.)
+                        // response.json()
+                        throw new Error('Error occurred!')
 
                     }
+                    return response.json()
+                })
+                .then(json => {
+                    var localToken: string = json.accessToken;
+                    console.log("Token--", localToken)
+                    dispatch(addTodo(localToken));
+                    localStorage.setItem('token', localToken);
+                    setAutorize(true)
+                    navigate('/search')
 
-                    ).catch((err) => {
-                        //   setError(false)
-                        setPasswordBoolen(false)
-                        setLoginBoolen(false)
-                        setPassword("")
-                        setLogin("")
-                        console.log(err, "error")
-                    })
 
-            } catch {
-                setPasswordBoolen(false)
-                setLoginBoolen(false)
-                setPassword("")
-                setLogin("")
-                console.log("errrer")
-            }
+                }
 
+                ).catch((err) => {
+                    //   setError(false)
+                    setPasswordBoolen(false)
+                    setLoginBoolen(false)
+                    setPassword("")
+                    setLogin("")
+                    console.log(err, "error")
+
+                })
+
+        } catch {
+            setPasswordBoolen(false)
+            setLoginBoolen(false)
+            setPassword("")
+            setLogin("")
+            console.log("errrer")
 
         }
-
 
     }
 
     // те в фоне проверяем каждую секунду что у нас произошло изменение
-    var myFunction = function () {
-        if (autorize) {
-            navigate('/')
-        }
-    };
-    setTimeout(myFunction, 1000);
+    // var myFunction = function () {
+    //     if (autorize) {
+    //         navigate('/')
+    //     }
+    // };
+    // setTimeout(myFunction, 1000);
 
 
     return (

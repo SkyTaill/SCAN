@@ -17,7 +17,7 @@ function Main() {
 
     //тут проверяем наличие токена в локал сторедж
     //нужно дописать логику с протухшим токеном а то баг
-    const [Json, setJson] = useState<data>()
+    const [Json, setJson] = useState<data[]>()
     const dispatch = useAppDispatch();
     var a = localStorage.getItem('token')
     if (a !== null) {
@@ -25,7 +25,6 @@ function Main() {
         dispatch(addTodo(a));
     }
     //autorize.user
-    console.log("main111", Json)
     //localStorage.clear();
 
     // можно попробовать ! вместо as , тип показываем что значение не нулевое будет
@@ -35,7 +34,7 @@ function Main() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/search" element={<PrivateRoute autorize={autorize.user} setJson={setJson} />} />
-                <Route path="/search/scan" element={<SearchScanRoute autorize={autorize.user} Json={Json} />} />
+                <Route path="/search/scan" element={<SearchScanRoute autorize={autorize.user} Json={Json!} />} />
 
             </Routes>
 

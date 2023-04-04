@@ -171,7 +171,7 @@
 
 .element {
     width: 641px;
-    height: 694px;
+
     margin-left: 38px;
     margin-right: 38px;
     background: #FFFFFF;
@@ -239,7 +239,7 @@
 
 .element_p_boodytext {
     width: 581px;
-    height: 228px;
+
 
 
     font-family: 'Inter';
@@ -321,4 +321,10 @@
 
 .element {
     margin-top: 30px;
+}
+
+.section_button_padding {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
