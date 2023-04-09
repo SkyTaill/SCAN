@@ -1,6 +1,5 @@
 import Page404 from "../Page404";
 import Search from "../Search";
-import { useState } from 'react';
 interface PrivateRouteProps {
     autorize: boolean,
     setJson: any

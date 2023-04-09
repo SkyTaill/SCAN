@@ -1,9 +1,7 @@
 import React from 'react';
-
 import css from "./index.module.css"
 import { Link } from 'react-router-dom'
 import Slider from "../Slider"
-
 import { useAppSelector } from 'src/hook';
 
 
@@ -56,7 +54,6 @@ function Home() {
                                         </div>
                                         <div className={css.picLamp}>
                                         </div>
-
 
                                     </div>
                                 </div>
@@ -134,8 +131,6 @@ function Home() {
 
                         </div>
 
-
-
                         <div className={css.tarifBlock}>
                             <div className={css.black}>
                                 <div className={css.margTarifBlock}>
@@ -177,20 +172,10 @@ function Home() {
 
                                 <button className={css.buttomTarifNoReg}>Подробнее</button>
                             </div>
-
-
-
                         </div>
-
                     </div>
                 </div>
-
-
-
-
             </section>
-
-
         </div>
     );
 

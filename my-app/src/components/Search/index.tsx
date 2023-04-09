@@ -27,49 +27,8 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
 
     const redux = useAppSelector((state: { todos: any; }) => state.todos)
 
-    var statistic: data[] = histogramDateInput.data
+    //var statistic: data[] = histogramDateInput.data
     const timeNow: string = "2023-03-24"
-
-    // let histogram: Histograms = {
-    //     issueDateInterval: {
-    //         startDate: "2019-01-01T00:00:00+03:00",
-    //         endDate: "2022-08-31T23:59:59+03:00"
-    //     },
-    //     searchContext:
-    //     {
-    //         targetSearchEntitiesContext: {
-    //             targetSearchEntities: [
-    //                 {
-    //                     type: "company",
-    //                     //  sparkId: null,
-    //                     //   entityId: null,
-    //                     inn: 7710137066,
-    //                     maxFullness: true
-    //                 }
-    //             ],
-    //             onlyMainRole: true,
-    //             tonality: "any",
-    //             onlyWithRiskFactors: false
-    //         }
-    //     },
-    //     attributeFilters: {
-    //         excludeTechNews: true,
-    //         excludeAnnouncements: true,
-    //         excludeDigests: true
-    //     },
-    //     similarMode: "duplicates",
-    //     limit: 1000,
-    //     sortType: "sourceInfluence",
-    //     sortDirectionType: "desc",
-    //     intervalType: "month",
-    //     histogramTypes: [
-    //         "totalDocuments",
-    //         "riskFactors"
-    //     ]
-    // }
-    // console.log(histogram)
-    //  getHistogram(histogram)
-
 
     const onChangeINN = (e: React.FormEvent<HTMLInputElement>) => {
 
@@ -240,8 +199,6 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                     <div className={css.dockPickter}>  </div>
                     <div className={css.DoubleDockPickter}></div>
                 </div>
-
-
             </div>
             <div className={css.flex}>
 
@@ -251,7 +208,6 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                             <p className={css.p_text}>ИНН компании *</p>
                             <input className={INNBoolen ? css.input : css.inputError} onChange={onChangeINN}></input>
                             <p className={css.p_text}>Тональность*</p>
-
 
                             <select id="selectvalue" className={`${css.input}  ${css.p_text}`} >
                                 <option className={`${css.input}  ${css.p_text}`} >позитивная</option>
@@ -317,20 +273,12 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                                 </div>
 
                                 <Button />
-
                             </div>
                         </div>
-
-
                     </div>
                 </section>
-
-
-
                 <div className={css.rocketPic}></div>
             </div>
-
-
 
         </div >
     );
@@ -383,17 +331,7 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                     return response.json()
                 })
                 .then(json => {
-                    //  console.log("------", json)
-
-                    //!!!!!!!!!!!Раскомить!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    console.log("2221", histogram)
                     setJson(json)
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //setJsonSearch(statistic)
-
-                    //ввод тестового значения
-
-                    // setJson(statistic)
                     navigate("/search/scan")
                 }
 

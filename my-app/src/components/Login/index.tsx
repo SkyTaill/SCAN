@@ -1,17 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-//import { json } from 'stream/consumers';
 import css from "./index.module.css"
 import { useAppDispatch } from 'src/hook';
 import { addTodo, } from 'src/store/todoSlice';
-//import { useAppSelector } from 'src/hook';
 import { HOST } from "../../API"
-import { redirect, useNavigate } from "react-router-dom";
-// interface ToDoItemProps{
-//     id: string;
-//     title: string
-// }
-// const TodoItem:React.FC<ToDoItemProps>=({id,title})=>{}
+import { useNavigate } from "react-router-dom";
+
 
 
 const Login: React.FC = () => {
@@ -22,8 +16,6 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    //const token = useAppSelector(state => state.todos)
-    //  console.log(token)
 
 
     const onChangeLogin = (e: React.FormEvent<HTMLInputElement>) => {
@@ -38,7 +30,6 @@ const Login: React.FC = () => {
                 '(?:[Ee][-+]?[1-2]?[0-9])?' +   // Optional exponent 0-29 for scientific notation.
                 '$'                             // No trailing content.
             )
-            //  console.log(patt.test(e.currentTarget.value))
             a = patt.test(e.currentTarget.value)
             setLoginBoolen(a)
             if (a) {
@@ -189,7 +180,6 @@ const Login: React.FC = () => {
                             {loginBoolen ? (passwordBoolen ? <button className={css.buttonLogInValidTrue} onClick={onClick} style={{ marginTop: "40px" }}>Войти</button>
                                 : <button className={css.buttonLogIn} style={{ marginTop: "40px" }}>Войти</button>) : <button className={css.buttonLogIn} style={{ marginTop: "40px" }} >Войти</button>
                             }
-
 
                             <button className={css.backupPassword} >Восстановить пароль</button>
                             <p className={css.textLoginBox} >Войти через:</p>
