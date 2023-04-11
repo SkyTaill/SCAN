@@ -184,7 +184,8 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                 "riskFactors"
             ]
         }
-        getHistogram(histogram)
+        // getHistogram(histogram)
+        getHistogramAxio(histogram)
     }
 
     return (
@@ -328,10 +329,13 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
                         throw new Error('Error occurred!')
 
                     }
-                    return response.json()
+                    return response.json() as Promise<data[]>
                 })
                 .then(json => {
-                    setJson(json)
+                    console.log(json[0])
+                    var a: data[] = json as data[]
+                    console.log("aaaza===", a[0].data)
+                    setJson(a)
                     navigate("/search/scan")
                 }
 
@@ -343,6 +347,36 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
             console.log("errrer")
         }
 
+    }
+
+
+    function getHistogramAxio(histogram: Histograms) {
+
+        const axios = require('axios').create({
+            baseURL: HOST,
+            timeout: 1000,
+            headers: { 'Authorization': 'Bearer ' + redux.token }
+        });
+
+        axios.post('/objectsearch/histograms',
+            {
+                intervalType: histogram.intervalType,
+                histogramTypes: histogram.histogramTypes,
+                issueDateInterval: histogram.issueDateInterval,
+                searchContext: histogram.searchContext,
+                similarMode: histogram.similarMode,
+                limit: histogram.limit,
+                sortType: histogram.sortType,
+                sortDirectionType: histogram.sortDirectionType,
+                attributeFilters: histogram.attributeFilters
+            })
+            .then(function (response: data[]) {
+                console.log(response);
+                setJson(response)
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            });
     }
 
 }

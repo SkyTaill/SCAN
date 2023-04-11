@@ -141,8 +141,6 @@ function Home() {
                                         </div>
                                         <div className={css.picBusiness}>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -196,9 +194,7 @@ function Home() {
                 <div></div>
             )
         }
-
     }
-
 }
 
 export default Home;

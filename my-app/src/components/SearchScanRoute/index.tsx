@@ -151,10 +151,12 @@ interface ShortStatisticProps {
 const ShortStatistic: React.FC<ShortStatisticProps> = ({ Json }) => {
     var statistic: data[] = Json
     if (statistic !== undefined && statistic !== null && statistic.length > 1) {
+        console.log("fffffffffffffffffe")
         return (
             <div className={css.flex}>
                 {
                     statistic.map((element, id) => {
+                        console.log(id)
                         if (id < 7) {
                             return (
                                 <ShortStatisticElement
