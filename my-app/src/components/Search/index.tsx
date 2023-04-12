@@ -1,7 +1,7 @@
 import React from 'react';
 
 import css from "./index.module.css"
-
+import axios from 'axios';
 import { useState } from 'react';
 import { useAppSelector } from 'src/hook';
 import { HOST } from "../../API"
@@ -352,27 +352,41 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
 
     function getHistogramAxio(histogram: Histograms) {
 
-        const axios = require('axios').create({
+        axios.create({
             baseURL: HOST,
             timeout: 1000,
             headers: { 'Authorization': 'Bearer ' + redux.token }
         });
 
-        axios.post('/objectsearch/histograms',
-            {
-                intervalType: histogram.intervalType,
-                histogramTypes: histogram.histogramTypes,
-                issueDateInterval: histogram.issueDateInterval,
-                searchContext: histogram.searchContext,
-                similarMode: histogram.similarMode,
-                limit: histogram.limit,
-                sortType: histogram.sortType,
-                sortDirectionType: histogram.sortDirectionType,
-                attributeFilters: histogram.attributeFilters
-            })
-            .then(function (response: data[]) {
-                console.log(response);
-                setJson(response)
+        const config = {
+            headers: { Authorization: `Bearer ${redux.token}` }
+        };
+
+        const bodyParameters = {
+
+            intervalType: histogram.intervalType,
+            histogramTypes: histogram.histogramTypes,
+            issueDateInterval: histogram.issueDateInterval,
+            searchContext: histogram.searchContext,
+            similarMode: histogram.similarMode,
+            limit: histogram.limit,
+            sortType: histogram.sortType,
+            sortDirectionType: histogram.sortDirectionType,
+            attributeFilters: histogram.attributeFilters
+        };
+
+        axios.post(HOST + '/objectsearch/histograms',
+            bodyParameters,
+            config
+        )
+            .then(response => {
+
+                //  console.log("dasdasd", response.data)
+                var inputdate: data[] = response.data.data
+                //  console.log("dsa", inputdate[0])
+
+                setJson(inputdate)
+                navigate("/search/scan")
             })
             .catch(function (error: any) {
                 console.log(error);
