@@ -380,11 +380,7 @@ const Search: React.FC<SearchProps> = ({ setJson }) => {
             config
         )
             .then(response => {
-
-                //  console.log("dasdasd", response.data)
                 var inputdate: data[] = response.data.data
-                //  console.log("dsa", inputdate[0])
-
                 setJson(inputdate)
                 navigate("/search/scan")
             })
