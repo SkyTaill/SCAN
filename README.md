@@ -6,10 +6,10 @@
 
 Целевая аудитория — бизнес и ИП, которым нужно проверить добросовестность подрядчиков на основе публичных данных.
 
-![plot](./localhost_3000_%20(2).png)
+![plot](./pic/localhost_3000_%20(2).png)
 
-![plot](./localhost_3000_%20(3).png)
+![plot](./pic/localhost_3000_%20(3).png)
 
-![plot](./localhost_3000_search_scan.png)
+![plot](./pic/localhost_3000_search_scan.png)
 
-![plot](./localhost_3000_search.png)
+![plot](./pic/localhost_3000_search.png)
